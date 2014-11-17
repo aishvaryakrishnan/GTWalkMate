@@ -1,11 +1,11 @@
-angular.module('starter.controllers', [])
+var myApp = angular.module('starter.controllers', [])
 
-	.factory('Data', function(){
+	myApp.factory('Data', function(){
 	return { loginUsr = false };
 	})
 		
-    .controller('DashCtrl', function($scope) {
-    })
+    myApp.controller('DashCtrl', function($scope) {
+    });
     //http://codepen.io/udomsak/pen/Llzsj
     .controller('MapCtrl', function($scope, $cordovaGeolocation) {
         console.log("init map");
