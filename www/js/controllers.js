@@ -1,6 +1,19 @@
 var myApp = angular.module('starter.controllers', [])
 
-    myApp.controller('DashCtrl', function($scope) {
+	myApp.factory('Data', function(){
+	return { loginUsr = false };
+	})
+		
+    .controller('DashCtrl', function($scope) {
+
+$scope.submit = function(user) {
+    $scope.users.push({
+      title: task.title
+    });
+    $scope.Data.loginUsr = true
+    user.name = "";
+	user.pwd = "";
+  };
     });
     //http://codepen.io/udomsak/pen/Llzsj
     .controller('MapCtrl', function($scope, $cordovaGeolocation) {
@@ -46,12 +59,6 @@ var myApp = angular.module('starter.controllers', [])
     })
 
 
-$scope.submit = function(user) {
-
-    $scope.Data.loginUsr = true
-    user.name = "";
-	user.pwd = "";
-  };
     .controller('FriendsCtrl', function($scope, Friends) {
         $scope.friends = Friends.all();
     })
