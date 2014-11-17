@@ -2,9 +2,9 @@ var myApp = angular.module('starter.controllers', [])
 
 	myApp.factory('Data', function(){
 	return { loginUsr = false };
-	})
+	});
 		
-    .controller('DashCtrl', function($scope) {
+    myApp.controller('DashCtrl', function($scope) {
 
 $scope.submit = function(user) {
     $scope.users.push({
