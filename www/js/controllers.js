@@ -1,20 +1,7 @@
-var myApp = angular.module('starter.controllers', [])
+angular.module('starter.controllers', [])
 
-	myApp.factory('Data', function(){
-	return { loginUsr = false };
-	});
-		
-    myApp.controller('DashCtrl', function($scope, user) {
-
-$scope.submit = function(user) {
-    $scope.users.push({
-      title: task.title
-    });
-    $scope.Data.loginUsr = true
-    user.name = "";
-	user.pwd = "";
-  };
-    });
+    controller('DashCtrl', function($scope, user) {
+    })
     //http://codepen.io/udomsak/pen/Llzsj
     .controller('MapCtrl', function($scope, $cordovaGeolocation) {
         console.log("init map");
