@@ -1,9 +1,5 @@
 var myApp = angular.module('starter.controllers', [])
 
-	myApp.factory('Data', function(){
-	return { loginUsr = false };
-	})
-		
     myApp.controller('DashCtrl', function($scope) {
     });
     //http://codepen.io/udomsak/pen/Llzsj
