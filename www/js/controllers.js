@@ -1,6 +1,6 @@
 angular.module('starter.controllers', [])
 
-    controller('DashCtrl', function($scope, user) {
+    .controller('DashCtrl', function($scope, user) {
     })
     //http://codepen.io/udomsak/pen/Llzsj
     .controller('MapCtrl', function($scope, $cordovaGeolocation) {
