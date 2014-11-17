@@ -58,25 +58,6 @@ angular.module('starter', ['ionic','ngCordova', 'google-maps','starter.controlle
           }
       })
 
-      .state('tab.gmap', {
-          url: '/gmap',
-          views: {
-              'tab-gmap': {
-                  templateUrl: 'templates/tab-gmap.html',
-                  controller: 'GMapCtrl'
-              }
-          }
-      })
-
-      .state('tab.smap', {
-          url: '/smap',
-          views: {
-              'tab-smap': {
-                  templateUrl: 'templates/tab-smap.html',
-                  controller: 'SMapCtrl'
-              }
-          }
-      })
 
     .state('tab.friends', {
       url: '/friends',
