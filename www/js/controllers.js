@@ -1,9 +1,10 @@
 angular.module('starter.controllers', [])
 
-
-
+	.factory('Data', function(){
+	return { loginUsr = false };
+	})
+		
     .controller('DashCtrl', function($scope) {
-
     })
     //http://codepen.io/udomsak/pen/Llzsj
     .controller('MapCtrl', function($scope, $cordovaGeolocation) {
@@ -53,7 +54,7 @@ $scope.submit = function(user) {
     $scope.users.push({
       title: task.title
     });
-
+    $scope.Data.loginUsr = true
     user.name = "";
 	user.pwd = "";
   };
