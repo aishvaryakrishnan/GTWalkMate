@@ -51,9 +51,7 @@ var myApp = angular.module('starter.controllers', [])
 
 
 $scope.submit = function(user) {
-    $scope.users.push({
-      title: task.title
-    });
+
     $scope.Data.loginUsr = true
     user.name = "";
 	user.pwd = "";
