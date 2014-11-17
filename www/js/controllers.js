@@ -3,7 +3,7 @@ angular.module('starter.controllers', [])
 
 
     .controller('DashCtrl', function($scope) {
-	$scope.loginUsr = false
+
     })
     //http://codepen.io/udomsak/pen/Llzsj
     .controller('MapCtrl', function($scope, $cordovaGeolocation) {
@@ -53,7 +53,7 @@ $scope.submit = function(user) {
     $scope.users.push({
       title: task.title
     });
-    $scope.loginUsr = true
+
     user.name = "";
 	user.pwd = "";
   };
