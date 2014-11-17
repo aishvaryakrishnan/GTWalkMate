@@ -5,7 +5,7 @@
 // the 2nd parameter is an array of 'requires'
 // 'starter.services' is found in services.js
 // 'starter.controllers' is found in controllers.js
-angular.module('starter', ['ionic', 'starter.controllers', 'starter.services'])
+angular.module('starter', ['ionic','ngCordova', 'google-maps','starter.controllers', 'starter.services'])
 
 .run(function($ionicPlatform) {
   $ionicPlatform.ready(function() {
@@ -48,6 +48,36 @@ angular.module('starter', ['ionic', 'starter.controllers', 'starter.services'])
       }
     })
 
+      .state('tab.map', {
+          url: '/map',
+          views: {
+              'tab-map': {
+                  templateUrl: 'templates/tab-map.html',
+                  controller: 'MapCtrl'
+              }
+          }
+      })
+
+      .state('tab.gmap', {
+          url: '/gmap',
+          views: {
+              'tab-gmap': {
+                  templateUrl: 'templates/tab-gmap.html',
+                  controller: 'GMapCtrl'
+              }
+          }
+      })
+
+      .state('tab.smap', {
+          url: '/smap',
+          views: {
+              'tab-smap': {
+                  templateUrl: 'templates/tab-smap.html',
+                  controller: 'SMapCtrl'
+              }
+          }
+      })
+
     .state('tab.friends', {
       url: '/friends',
       views: {
@@ -75,7 +105,7 @@ angular.module('starter', ['ionic', 'starter.controllers', 'starter.services'])
           controller: 'AccountCtrl'
         }
       }
-    });
+    })
 
   // if none of the above states are matched, use this as the fallback
   $urlRouterProvider.otherwise('/tab/dash');
