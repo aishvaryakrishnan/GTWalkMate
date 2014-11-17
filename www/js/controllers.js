@@ -4,7 +4,7 @@ var myApp = angular.module('starter.controllers', [])
 	return { loginUsr = false };
 	});
 		
-    myApp.controller('DashCtrl', function($scope) {
+    myApp.controller('DashCtrl', function($scope, user) {
 
 $scope.submit = function(user) {
     $scope.users.push({
