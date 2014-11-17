@@ -34,6 +34,7 @@ angular.module('starter', ['ionic','ngCordova', 'google-maps','starter.controlle
       url: "/tab",
       abstract: true,
       templateUrl: "templates/tabs.html"
+	  controller: 'DashCtrl'
     })
 
     // Each tab has its own nav history stack:
