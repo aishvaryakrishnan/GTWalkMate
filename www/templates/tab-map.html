@@ -1,7 +1,9 @@
 <ion-view title="Select destination and time">
   <ion-content class="has-header padding">
   <div class="padding">
-    
+		<label class="item item-input">
+            <input type="text" placeholder="Destination:" ng-model="loc">
+          </label>
       <p>{{centerLat}}:{{centerLng}}</p>
 	  </div>
       <div ng-show="mapVisible" id="map" class="padding"></div>

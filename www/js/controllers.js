@@ -2,13 +2,11 @@ angular.module('starter.controllers', [])
 
     .controller('DashCtrl', function($scope, user) {
     })
-    //http://codepen.io/udomsak/pen/Llzsj
     .controller('MapCtrl', function($scope, $cordovaGeolocation) {
         console.log("init map");
         $scope.msg = "";
         $scope.coords = [0,0];
         $scope.mapVisible = true;
-		$scope.loc = 'Hello, world!';
 
         var init = function () {
             var mapOptions = {};
@@ -35,7 +33,9 @@ angular.module('starter.controllers', [])
                 zoom: 16,
                 mapTypeId: google.maps.MapTypeId.ROADMAP
             };*/
-            $scope.map.setCenter(new google.maps.LatLng(lat, lng));
+			var pos = new google.maps.LatLng(lat, lng);
+			$scope.loc = pos
+            $scope.map.setCenter(pos);
             $scope.map.setZoom(16);
             $scope.centerLat = lat;
             $scope.centerLng = lng;
