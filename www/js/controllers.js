@@ -41,7 +41,7 @@ angular.module('starter.controllers', [])
 		
 			
 			
-            $scope.map.setCenter(pos);
+            $scope.map.setCenter(new google.maps.LatLng(lat, lng));
             $scope.map.setZoom(16);
             $scope.centerLat = lat;
             $scope.centerLng = lng;
