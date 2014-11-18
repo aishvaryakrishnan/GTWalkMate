@@ -33,13 +33,13 @@ angular.module('starter.controllers', [])
                 zoom: 16,
                 mapTypeId: google.maps.MapTypeId.ROADMAP
             };*/
-			var pos = new google.maps.LatLng(lat, lng);
+
 			var marker = new google.maps.Marker({
                                                     position: new google.maps.LatLng(myLat, myLong),
                                                     map: map,
                                                     title:"Hello World!"
                                                     });
-			$scope.loc = pos
+			$scope.loc = 'test'
             $scope.map.setCenter(pos);
             $scope.map.setZoom(16);
             $scope.centerLat = lat;
