@@ -61,23 +61,6 @@ angular.module('starter.controllers', [])
 
             navigator.geolocation.getCurrentPosition(onSuccess, onError);
         
-		
-
-           function findAddress(address) {
-
-var address = document.getElementById("address").value;
-
-    geocoder.geocode( { 'address': address}, function(results, status) {
-      if (status == google.maps.GeocoderStatus.OK) {
-        map.setCenter(results[0].geometry.location);
-        var pos = results[0].geometry.location;
-		marker.setPosition(results[0].geometry.location);
-      } else {
-        alert("Geocode was not successful for the following reason: " +   status);
-      }
-    });
-
-     }
 
     })
 
