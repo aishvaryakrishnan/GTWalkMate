@@ -30,13 +30,6 @@ angular.module('starter.controllers', [])
 
             };
 
-			google.maps.event.addListener(marker, "dragend", function(event) {
-
-            var lat = event.latLng.lat()
-            var lng = event.latLng.lng()
-
-
-        });
             // onError Callback receives a PositionError object
             //
             function onError(error) {
