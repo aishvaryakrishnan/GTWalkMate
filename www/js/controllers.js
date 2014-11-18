@@ -26,18 +26,18 @@ angular.module('starter.controllers', [])
             });
         };
 
-var marker = new google.maps.Marker({
-                                                    position: new google.maps.LatLng(myLat, myLong),
-                                                    map: map,
-                                                    title:"Hello World!"
-                                                    });
+
         $scope.updateCenter = function(lat, lng) {
             /*var mapOptions = {
                 center: new google.maps.LatLng(0,0),
                 zoom: 16,
                 mapTypeId: google.maps.MapTypeId.ROADMAP
             };*/
-
+		var marker = new google.maps.Marker({
+                                                    position: new google.maps.LatLng(lat, lng),
+                                                    map: map,
+                                                    title:"Hello World!"
+                                                    });
 			
 			$scope.loc = 'test'
             $scope.map.setCenter(pos);
