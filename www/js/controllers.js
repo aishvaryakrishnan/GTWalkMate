@@ -24,7 +24,7 @@ angular.module('starter.controllers', [])
                                                     map: map,
                                                     title:"Hello World!"
                                                     });
-				
+
             };
 
             // onError Callback receives a PositionError object
@@ -34,10 +34,13 @@ angular.module('starter.controllers', [])
                       'message: ' + error.message + '\n');
             }
 
-            
+            navigator.geolocation.getCurrentPosition(onSuccess, onError);
+        
+		
 
-};
-     navigator.geolocation.getCurrentPosition(onSuccess, onError);
+           
+
+     
 
     })
 
