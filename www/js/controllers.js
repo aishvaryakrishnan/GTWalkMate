@@ -26,12 +26,7 @@ angular.module('starter.controllers', [])
                 $scope.msg = "unable to determine location";
             });
         };
-		var marker = new google.maps.Marker({
-                                                    position: new google.maps.LatLng(lat, lng),
-                                                    map: map,
-                                                    title:"Hello World!"
-                                                    });
-
+		
         $scope.updateCenter = function(lat, lng) {
             /*var mapOptions = {
                 center: new google.maps.LatLng(0,0),
