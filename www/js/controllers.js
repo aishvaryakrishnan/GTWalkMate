@@ -10,13 +10,7 @@ angular.module('starter.controllers', [])
                 var myLat = position.coords.latitude;
                 var myLong = position.coords.longitude;
 
-        google.maps.event.addListener(marker, "dragend", function(event) {
-
-            var lat = event.latLng.lat()
-            var lng = event.latLng.lng()
-
-
-        });
+        
                 //MAP
                 var mapOptions = {
                     center: new google.maps.LatLng(myLat, myLong),
@@ -36,6 +30,13 @@ angular.module('starter.controllers', [])
 
             };
 
+			google.maps.event.addListener(marker, "dragend", function(event) {
+
+            var lat = event.latLng.lat()
+            var lng = event.latLng.lng()
+
+
+        });
             // onError Callback receives a PositionError object
             //
             function onError(error) {
