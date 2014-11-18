@@ -24,7 +24,7 @@ angular.module('starter.controllers', [])
                                                     map: map,
                                                     title:"Hello World!"
                                                     });
-
+				moveMarker( map, marker );
             };
 
             // onError Callback receives a PositionError object
@@ -36,7 +36,7 @@ angular.module('starter.controllers', [])
 
             
         
-			moveMarker( map, marker );
+			
 
 			function moveMarker( map, marker ) {
     
