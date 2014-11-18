@@ -15,8 +15,6 @@ angular.module('starter.controllers', [])
         var onSuccess = function(position) {
                 var myLat = position.coords.latitude;
                 var myLong = position.coords.longitude;
-				document.getElementById('geo_latitude').value=myLat;
-        document.getElementById('geo_longitude').value=myLong;
 
         google.maps.event.addListener(marker, "dragend", function(event) {
 
@@ -32,9 +30,6 @@ angular.module('starter.controllers', [])
 
                 infowindow.close();
              });
-
-        document.getElementById('geo_latitude').value=lat;
-        document.getElementById('geo_longitude').value=lng;
 
 
         });
