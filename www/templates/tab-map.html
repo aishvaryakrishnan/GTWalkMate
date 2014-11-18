@@ -2,7 +2,8 @@
 <h1 class="title">Select destination and time</h1>
   <ion-content class="has-header padding">
   <div class="padding">
-    
+    <select ng-model="loc">
+	<div>{{loc}}</div>
       <p>{{centerLat}}:{{centerLng}}</p>
 	  </div>
       <div ng-show="mapVisible" id="map" class="padding"></div>

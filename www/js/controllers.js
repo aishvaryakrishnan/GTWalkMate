@@ -8,6 +8,7 @@ angular.module('starter.controllers', [])
         $scope.msg = "";
         $scope.coords = [0,0];
         $scope.mapVisible = true;
+		$scope.loc = 'Hello, world!';
 
         var init = function () {
             var mapOptions = {};
