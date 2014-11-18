@@ -3,12 +3,41 @@ angular.module('starter.controllers', [])
     .controller('DashCtrl', function($scope, user) {
     })
     .controller('MapCtrl', function($scope, $cordovaGeolocation) {
+	var marker = = new google.maps.Marker({
+                                                    position: new google.maps.LatLng(0, 0),
+                                                    map: map,
+                                                    title:"Hello World!",
+													draggable:true
+                                                    });
+	geocoder = new google.maps.Geocoder();
 	$scope.coords = [0,0];
         $scope.mapVisible = true;
         var onSuccess = function(position) {
                 var myLat = position.coords.latitude;
                 var myLong = position.coords.longitude;
+				document.getElementById('geo_latitude').value=myLat;
+        document.getElementById('geo_longitude').value=myLong;
 
+        google.maps.event.addListener(marker, "dragend", function(event) {
+
+            var lat = event.latLng.lat()
+            var lng = event.latLng.lng()
+
+            var infowindow = new google.maps.InfoWindow({
+                content: '<b><?php _e('Latitude:');?></b>' + lat + '<br><b><?php _e('Longitude:');?></b>' + lng
+             });
+            infowindow.open(map, marker);
+
+            google.maps.event.addListener(marker, "dragstart", function() {
+
+                infowindow.close();
+             });
+
+        document.getElementById('geo_latitude').value=lat;
+        document.getElementById('geo_longitude').value=lng;
+
+
+        });
                 //MAP
                 var mapOptions = {
                     center: new google.maps.LatLng(myLat, myLong),
@@ -19,7 +48,7 @@ angular.module('starter.controllers', [])
             var map = new google.maps.Map(document.getElementById("map"),
                                               mapOptions);
  $scope.map = map;
-                var marker = new google.maps.Marker({
+                marker = new google.maps.Marker({
                                                     position: new google.maps.LatLng(myLat, myLong),
                                                     map: map,
                                                     title:"Hello World!",
@@ -39,7 +68,19 @@ angular.module('starter.controllers', [])
         
 		
 
-           
+           function findAddress(address) {
+
+var address = document.getElementById("address").value;
+
+    geocoder.geocode( { 'address': address}, function(results, status) {
+      if (status == google.maps.GeocoderStatus.OK) {
+        map.setCenter(results[0].geometry.location);
+        var pos = results[0].geometry.location;
+		marker.setPosition(results[0].geometry.location);
+      } else {
+        alert("Geocode was not successful for the following reason: " +   status);
+      }
+    });
 
      
 
