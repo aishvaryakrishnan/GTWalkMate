@@ -21,16 +21,6 @@ angular.module('starter.controllers', [])
             var lat = event.latLng.lat()
             var lng = event.latLng.lng()
 
-            var infowindow = new google.maps.InfoWindow({
-                content: '<b><?php _e('Latitude:');?></b>' + lat + '<br><b><?php _e('Longitude:');?></b>' + lng
-             });
-            infowindow.open(map, marker);
-
-            google.maps.event.addListener(marker, "dragstart", function() {
-
-                infowindow.close();
-             });
-
 
         });
                 //MAP
