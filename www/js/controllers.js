@@ -23,7 +23,6 @@ angular.module('starter.controllers', [])
                                                     position: new google.maps.LatLng(myLat, myLong),
                                                     map: map,
                                                     title:"Hello World!"
-													draggable: true
                                                     });
 				
             };
