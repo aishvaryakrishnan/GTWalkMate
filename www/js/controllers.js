@@ -3,13 +3,7 @@ angular.module('starter.controllers', [])
     .controller('DashCtrl', function($scope, user) {
     })
     .controller('MapCtrl', function($scope, $cordovaGeolocation) {
-	var marker = = new google.maps.Marker({
-                                                    position: new google.maps.LatLng(0, 0),
-                                                    map: map,
-                                                    title:"Hello World!",
-													draggable:true
-                                                    });
-	geocoder = new google.maps.Geocoder();
+
 	$scope.coords = [0,0];
         $scope.mapVisible = true;
         var onSuccess = function(position) {
@@ -33,7 +27,7 @@ angular.module('starter.controllers', [])
             var map = new google.maps.Map(document.getElementById("map"),
                                               mapOptions);
  $scope.map = map;
-                marker = new google.maps.Marker({
+                var marker = new google.maps.Marker({
                                                     position: new google.maps.LatLng(myLat, myLong),
                                                     map: map,
                                                     title:"Hello World!",
