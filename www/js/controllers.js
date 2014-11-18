@@ -17,6 +17,7 @@ angular.module('starter.controllers', [])
 
             // get coords
             $cordovaGeolocation.getCurrentPosition().then(function(position) {
+			$scope.loc = position
                 // Position here: position.coords.latitude, position.coords.longitude
                 console.log("setting map");
                 $scope.msg = position.coords.latitude + ":" + position.coords.longitude;
@@ -25,7 +26,11 @@ angular.module('starter.controllers', [])
                 $scope.msg = "unable to determine location";
             });
         };
-
+		var marker = new google.maps.Marker({
+                                                    position: new google.maps.LatLng(lat, lng),
+                                                    map: map,
+                                                    title:"Hello World!"
+                                                    });
 
         $scope.updateCenter = function(lat, lng) {
             /*var mapOptions = {
@@ -33,13 +38,9 @@ angular.module('starter.controllers', [])
                 zoom: 16,
                 mapTypeId: google.maps.MapTypeId.ROADMAP
             };*/
-		var marker = new google.maps.Marker({
-                                                    position: new google.maps.LatLng(lat, lng),
-                                                    map: map,
-                                                    title:"Hello World!"
-                                                    });
+		
 			
-			$scope.loc = 'test'
+			
             $scope.map.setCenter(pos);
             $scope.map.setZoom(16);
             $scope.centerLat = lat;
