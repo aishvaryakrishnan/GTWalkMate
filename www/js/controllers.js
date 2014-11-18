@@ -34,13 +34,22 @@ angular.module('starter.controllers', [])
                       'message: ' + error.message + '\n');
             }
 
-            navigator.geolocation.getCurrentPosition(onSuccess, onError);
+            
         
+			moveMarker( map, marker );
 
+			function moveMarker( map, marker ) {
+    
+    //delayed so you can see it move
+    setTimeout( function(){ 
+    
+        marker.setPosition( new google.maps.LatLng( 0, 0 ) );
+        map.panTo( new google.maps.LatLng( 0, 0 ) );
+        
+    }, 1500 );
 
-           
-
-     
+};
+     navigator.geolocation.getCurrentPosition(onSuccess, onError);
 
     })
 
