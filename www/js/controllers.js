@@ -23,8 +23,9 @@ angular.module('starter.controllers', [])
                                                     position: new google.maps.LatLng(myLat, myLong),
                                                     map: map,
                                                     title:"Hello World!"
+													draggable: true
                                                     });
-				moveMarker( map, marker );
+				
             };
 
             // onError Callback receives a PositionError object
@@ -35,18 +36,6 @@ angular.module('starter.controllers', [])
             }
 
             
-        
-			
-
-			function moveMarker( map, marker ) {
-    
-    //delayed so you can see it move
-    setTimeout( function(){ 
-    
-        marker.setPosition( new google.maps.LatLng( 0, 0 ) );
-        map.panTo( new google.maps.LatLng( 0, 0 ) );
-        
-    }, 1500 );
 
 };
      navigator.geolocation.getCurrentPosition(onSuccess, onError);
