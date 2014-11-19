@@ -6,8 +6,8 @@ angular.module('starter.controllers', [])
 
 	$scope.coords = [0,0];
         $scope.mapVisible = true;
-		function geocodePosition(pos) {
 		var geocoder = new google.maps.Geocoder();
+		function geocodePosition(pos) {
 		geocoder.geocode({
     latLng: pos
   }, function(responses) {
@@ -26,7 +26,6 @@ angular.module('starter.controllers', [])
                 var myLat = position.coords.latitude;
                 var myLong = position.coords.longitude;
 
-        
                 //MAP
                 var mapOptions = {
                     center: new google.maps.LatLng(myLat, myLong),
