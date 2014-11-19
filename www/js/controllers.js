@@ -20,7 +20,7 @@ angular.module('starter.controllers', [])
   }
   
   function updateMarkerAddress(str) {
-  document.getElementById('address').innerHTML = str;
+  $scope.address = str;
 }
         var onSuccess = function(position) {
                 var myLat = position.coords.latitude;
@@ -47,7 +47,6 @@ angular.module('starter.controllers', [])
             };
 
 			 google.maps.event.addListener(marker, 'dragend', function() {
-    updateMarkerStatus('Drag ended');
     geocodePosition(marker.getPosition());
   });
             // onError Callback receives a PositionError object
