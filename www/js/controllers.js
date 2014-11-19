@@ -6,22 +6,7 @@ angular.module('starter.controllers', [])
 
 	$scope.coords = [0,0];
         $scope.mapVisible = true;
-		var geocoder = new google.maps.Geocoder();
-		function geocodePosition(pos) {
-		geocoder.geocode({
-    latLng: pos
-  }, function(responses) {
-    if (responses && responses.length > 0) {
-      updateMarkerAddress(responses[0].formatted_address);
-    } else {
-      updateMarkerAddress('Cannot determine address at this location.');
-    }
-  });
-  }
-  
-  function updateMarkerAddress(str) {
-  $scope.address = str;
-}
+		
         var onSuccess = function(position) {
                 var myLat = position.coords.latitude;
                 var myLong = position.coords.longitude;
@@ -46,7 +31,8 @@ angular.module('starter.controllers', [])
             };
 
 			 google.maps.event.addListener(marker, 'dragend', function() {
-    geocodePosition(marker.getPosition());
+    //geocodePosition(marker.getPosition());
+	document.getElementById('address').innerHTML = str;
   });
             // onError Callback receives a PositionError object
             //
