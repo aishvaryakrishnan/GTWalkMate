@@ -6,7 +6,26 @@ angular.module('starter.controllers', [])
 
 	$scope.coords = [0,0];
         $scope.mapVisible = true;
-		
+		var geocoder = new google.maps.Geocoder();
+		function geocodePosition(pos) {
+		geocoder.geocode({
+    latLng: pos
+  }, function(responses) {
+    if (responses && responses.length > 0) {
+      updateMarkerAddress(responses[0].formatted_address);
+	  var infowindow = new google.maps.InfoWindow();
+	  infowindow.setContent(results[1].formatted_address);
+        infowindow.open(map, marker);
+    } else {
+      updateMarkerAddress('Cannot determine address at this location.');
+    }
+  });
+  }
+  
+  function updateMarkerAddress(str) {
+  $scope.address = str;
+  ocument.getElementById('address').innerHTML = str;
+}
         var onSuccess = function(position) {
                 var myLat = position.coords.latitude;
                 var myLong = position.coords.longitude;
@@ -21,11 +40,12 @@ angular.module('starter.controllers', [])
             var map = new google.maps.Map(document.getElementById("map"),
                                               mapOptions);
  $scope.map = map;
+ var latlng = new google.maps.LatLng(myLat, myLong);
                 var marker = new google.maps.Marker({
-                                                    position: new google.maps.LatLng(myLat, myLong),
+                                                    position: latlng,
                                                     map: map,
-                                                    title:position,
-													draggable:true
+													draggable:true,
+													raiseOnDrag: true,
                                                     });
 google.maps.event.addListener(marker, 'dragend', function() {
     //geocodePosition(marker.getPosition());
