@@ -27,13 +27,13 @@ angular.module('starter.controllers', [])
                                                     title:"Hello World!",
 													draggable:true
                                                     });
-
-            };
-
-			 google.maps.event.addListener(marker, 'dragend', function() {
+google.maps.event.addListener(marker, 'dragend', function() {
     //geocodePosition(marker.getPosition());
 	$scope.address = str;
   });
+            };
+
+			 
             // onError Callback receives a PositionError object
             //
             function onError(error) {
