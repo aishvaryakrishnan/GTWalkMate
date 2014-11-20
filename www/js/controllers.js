@@ -30,7 +30,7 @@ angular.module('starter.controllers', [])
 google.maps.event.addListener(marker, 'dragend', function() {
     //geocodePosition(marker.getPosition());
 	document.getElementById('address').innerHTML = str;
-
+	marker.setTitle(str);
   });
             };
 
