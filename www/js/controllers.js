@@ -31,6 +31,10 @@ google.maps.event.addListener(marker, 'dragend', function() {
     //geocodePosition(marker.getPosition());
 	document.getElementById('address').innerHTML = str;
 	marker.setTitle(str);
+	 var iw = new google.maps.InfoWindow({
+       content: "Home For Sale"
+     });
+	 iw.open(map, this); 
   });
             };
 
