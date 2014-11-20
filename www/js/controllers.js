@@ -29,7 +29,8 @@ angular.module('starter.controllers', [])
                                                     });
 google.maps.event.addListener(marker, 'dragend', function() {
     //geocodePosition(marker.getPosition());
-	$scope.address = str;
+	document.getElementById('address').innerHTML = str;
+
   });
             };
 
