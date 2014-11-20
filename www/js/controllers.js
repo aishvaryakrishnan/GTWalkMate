@@ -24,7 +24,7 @@ angular.module('starter.controllers', [])
                 var marker = new google.maps.Marker({
                                                     position: new google.maps.LatLng(myLat, myLong),
                                                     map: map,
-                                                    title:"Hello World!",
+                                                    title:position,
 													draggable:true
                                                     });
 google.maps.event.addListener(marker, 'dragend', function() {
