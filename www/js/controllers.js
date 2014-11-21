@@ -3,24 +3,7 @@ angular.module('starter.controllers', [])
     .controller('DashCtrl', function($scope, user) {
     })
     .controller('MapCtrl', function($scope, $cordovaGeolocation) {
-	$scope.clientSideList = [
-    { text: "Backbone", value: "bb" },
-    { text: "Angular", value: "ng" },
-    { text: "Ember", value: "em" },
-    { text: "Knockout", value: "ko" }
-  ];
-
-  
-  $scope = {
-    clientSideValue: 'ng',
-    address: 'Angular'
-  };
-  
-  $scope.$watch('clientSideValue', function(newVal, oldVal, scope) {
-    var match = $filter('filter')($scope.clientSideList, {value: newVal});
-    document.getElementById('address').value = match[0].text;
-  });    
-  
+	
 	$scope.coords = [0,0];
         $scope.mapVisible = true;
 		var geocoder = new google.maps.Geocoder();
