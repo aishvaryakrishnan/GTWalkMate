@@ -12,11 +12,11 @@ angular.module('starter.controllers', [])
     latLng: pos
 	alert("inside");
   }, function(responses) {
-  alert(document.getElementById('address').innerHTML);
+  alert("inside 2");
     if (responses && responses.length > 0) {
       updateMarkerAddress(responses[0].formatted_address);
 	  var infowindow = new google.maps.InfoWindow();
-	  infowindow.setContent(responses[1].formatted_address);
+	  infowindow.setContent(responses[0].formatted_address);
         infowindow.open(map, marker);
     } else {
       updateMarkerAddress('Cannot determine address at this location');
