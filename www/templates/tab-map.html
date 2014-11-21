@@ -2,6 +2,7 @@
   <ion-content class="has-header padding">
   <div class="padding">
    <div class="list">
+		<label class="item item-input">
             <input id ="address" type="text" placeholder="Destination:" ng-model="address">
 			<select ng-model="data.clientSideValue">
           <option ng-repeat="item in clientSideList" ng-value="item.value">
@@ -9,6 +10,7 @@
           </option>
         </select>
           </label>
+	  </div>
 	  </div>
       <div ng-show="mapVisible" id="map" class="padding"></div>
 	  
