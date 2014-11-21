@@ -48,7 +48,7 @@ angular.module('starter.controllers', [])
 													raiseOnDrag: true,
                                                     });
 google.maps.event.addListener(marker, "dragend", function() {
-alert("before calling clear_markers()");
+alert(marker.getPosition());
     geocodePosition(marker.getPosition());
 	document.getElementById('address').innerHTML = marker.getPosition();
 	marker.setTitle(marker.getPosition());
