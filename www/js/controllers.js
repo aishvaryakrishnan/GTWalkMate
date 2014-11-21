@@ -10,9 +10,7 @@ angular.module('starter.controllers', [])
     { text: "Knockout", value: "ko" }
   ];
   
-  $scope.clientSideValue.onChange = function(){alert("test");
-	 var match = $filter('filter')($scope.clientSideList, {value: newVal});
-    document.getElementById('address').value = match[0].text;};
+  
   
 	$scope.coords = [0,0];
         $scope.mapVisible = true;
