@@ -11,7 +11,7 @@ angular.module('starter.controllers', [])
 		geocoder.geocode({
     latLng: pos
   }, function(responses) {
-  alert(document.getElementById('address').innerHTML);
+  alert(document.getElementById('address').value);
     if (responses && responses.length > 0) {
       updateMarkerAddress(responses[0].formatted_address);
 	  var infowindow = new google.maps.InfoWindow();
@@ -25,7 +25,7 @@ angular.module('starter.controllers', [])
   
   function updateMarkerAddress(str) {
   $scope.address = str;
-  ocument.getElementById('address').innerHTML = str;
+  ocument.getElementById('address').value = str;
 }
         var onSuccess = function(position) {
                 var myLat = position.coords.latitude;
