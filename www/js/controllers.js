@@ -17,7 +17,7 @@ angular.module('starter.controllers', [])
 	  infowindow.setContent(results[1].formatted_address);
         infowindow.open(map, marker);
     } else {
-      updateMarkerAddress('Cannot determine address at this location.');
+      updateMarkerAddress('Cannot determine address at this location');
     }
   });
   }
