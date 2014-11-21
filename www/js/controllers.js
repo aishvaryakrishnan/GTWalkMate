@@ -10,11 +10,13 @@ angular.module('starter.controllers', [])
 		function geocodePosition(pos) {
 		geocoder.geocode({
     latLng: pos
+	alert("inside");
   }, function(responses) {
+  alert(document.getElementById('address').innerHTML);
     if (responses && responses.length > 0) {
       updateMarkerAddress(responses[0].formatted_address);
 	  var infowindow = new google.maps.InfoWindow();
-	  infowindow.setContent(results[1].formatted_address);
+	  infowindow.setContent(responses[1].formatted_address);
         infowindow.open(map, marker);
     } else {
       updateMarkerAddress('Cannot determine address at this location');
@@ -48,7 +50,6 @@ angular.module('starter.controllers', [])
 													raiseOnDrag: true,
                                                     });
 google.maps.event.addListener(marker, "dragend", function() {
-alert(marker.getPosition());
     geocodePosition(marker.getPosition());
 	document.getElementById('address').innerHTML = marker.getPosition();
 	marker.setTitle(marker.getPosition());
