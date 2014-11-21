@@ -11,12 +11,12 @@ angular.module('starter.controllers', [])
   ];
 
   
-  $scope.data = {
+  $scope = {
     clientSideValue: 'ng',
     address: 'Angular'
   };
   
-  $scope.$watch('data.clientSideValue', function(newVal, oldVal, scope) {
+  $scope.$watch('clientSideValue', function(newVal, oldVal, scope) {
     var match = $filter('filter')($scope.clientSideList, {value: newVal});
     document.getElementById('address').value = match[0].text;
   });    
