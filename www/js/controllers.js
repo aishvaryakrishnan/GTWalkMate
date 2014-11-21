@@ -10,9 +10,8 @@ angular.module('starter.controllers', [])
 		function geocodePosition(pos) {
 		geocoder.geocode({
     latLng: pos
-	alert("inside");
   }, function(responses) {
-  alert("inside 2");
+  alert(document.getElementById('address').innerHTML);
     if (responses && responses.length > 0) {
       updateMarkerAddress(responses[0].formatted_address);
 	  var infowindow = new google.maps.InfoWindow();
