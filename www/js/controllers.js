@@ -18,7 +18,7 @@ angular.module('starter.controllers', [])
   
   $scope.$watch('data.clientSideValue', function(newVal, oldVal, scope) {
     var match = $filter('filter')($scope.clientSideList, {value: newVal});
-    scope.data.address = match[0].text;
+    document.getElementById('address').value = match[0].text;
   });    
   
 
