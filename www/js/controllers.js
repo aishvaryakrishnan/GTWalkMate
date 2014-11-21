@@ -10,11 +10,15 @@ angular.module('starter.controllers', [])
     { text: "Knockout", value: "ko" }
   ];
   
-  $scope.$watch('clientSideValue', function(newVal, oldVal, scope) {
-  alert("test");
-    var match = $filter('filter')($scope.clientSideList, {value: newVal});
-    document.getElementById('address').value = match[0].text;
-  });    
+  $scope.clientSideValue.addEventListener(
+     'change',
+     function() {
+	 
+	 alert("test");
+	 var match = $filter('filter')($scope.clientSideList, {value: newVal});
+    document.getElementById('address').value = match[0].text;},
+     false
+  );
   
 	$scope.coords = [0,0];
         $scope.mapVisible = true;
