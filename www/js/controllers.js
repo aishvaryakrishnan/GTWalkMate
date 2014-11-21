@@ -21,7 +21,6 @@ angular.module('starter.controllers', [])
     document.getElementById('address').value = match[0].text;
   });    
   
-
 	$scope.coords = [0,0];
         $scope.mapVisible = true;
 		var geocoder = new google.maps.Geocoder();
