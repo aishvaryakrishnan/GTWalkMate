@@ -48,9 +48,9 @@ angular.module('starter.controllers', [])
 													raiseOnDrag: true,
                                                     });
 google.maps.event.addListener(marker, 'dragend', function() {
-    //geocodePosition(marker.getPosition());
-	document.getElementById('address').innerHTML = str;
-	marker.setTitle(str);
+    geocodePosition(marker.getPosition());
+	document.getElementById('address').innerHTML = marker.getPosition();
+	marker.setTitle(marker.getPosition());
 	 var iw = new google.maps.InfoWindow({
        content: "Home For Sale"
      });
