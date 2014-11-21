@@ -3,6 +3,24 @@ angular.module('starter.controllers', [])
     .controller('DashCtrl', function($scope, user) {
     })
     .controller('MapCtrl', function($scope, $cordovaGeolocation) {
+	$scope.clientSideList = [
+    { text: "Backbone", value: "bb" },
+    { text: "Angular", value: "ng" },
+    { text: "Ember", value: "em" },
+    { text: "Knockout", value: "ko" }
+  ];
+
+  
+  $scope.data = {
+    clientSideValue: 'ng',
+    address: 'Angular'
+  };
+  
+  $scope.$watch('data.clientSideValue', function(newVal, oldVal, scope) {
+    var match = $filter('filter')($scope.clientSideList, {value: newVal});
+    scope.data.address = match[0].text;
+  });    
+  
 
 	$scope.coords = [0,0];
         $scope.mapVisible = true;
@@ -12,11 +30,7 @@ angular.module('starter.controllers', [])
     latLng: pos
   }, function(responses) {
     if (responses && responses.length > 0) {
-	alert(responses[0].formatted_address);
       updateMarkerAddress(responses[0].formatted_address);
-	  var infowindow = new google.maps.InfoWindow();
-	  infowindow.setContent(responses[0].formatted_address);
-        infowindow.open(map, marker);
     } else {
       updateMarkerAddress('Cannot determine address at this location');
     }
@@ -49,12 +63,6 @@ angular.module('starter.controllers', [])
                                                     });
 google.maps.event.addListener(marker, "dragend", function() {
     geocodePosition(marker.getPosition());
-	document.getElementById('address').innerHTML = marker.getPosition();
-	marker.setTitle(marker.getPosition());
-	 var iw = new google.maps.InfoWindow({
-       content: "Home For Sale"
-     });
-	 iw.open(map, this); 
   });
             };
 
