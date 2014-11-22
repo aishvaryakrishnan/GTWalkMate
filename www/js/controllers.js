@@ -10,11 +10,14 @@ angular.module('starter.controllers', [])
     { text: "Knockout", value: "ko" }
   ];
   
-  $scope.clientSideValue.onchange = function(){alert("test");
-	 };
   
 	$scope.coords = [0,0];
         $scope.mapVisible = true;
+		
+		clientSideValue.onchange = function(){alert("test");
+	 var match = $filter('filter')($scope.clientSideList, {value: newVal});
+    document.getElementById('address').value = match[0].text;};
+  
 		var geocoder = new google.maps.Geocoder();
 		function geocodePosition(pos) {
 		geocoder.geocode({
