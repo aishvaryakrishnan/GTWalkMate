@@ -15,9 +15,8 @@ angular.module('starter.controllers', [])
         $scope.mapVisible = true;
 		
 		clientSideValue.onchange = function(val){
-		
-		var $this = $(this);
-            var newValue = $this.data('newVal', $this.val());
+
+            var newValue = $(this).data("new", $(this).val());
 			alert(newValue);
     document.getElementById('address').value = newValue;};
   
