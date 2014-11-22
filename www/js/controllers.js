@@ -18,7 +18,7 @@ angular.module('starter.controllers', [])
 		
 		var $this = $(this);
             var newValue = $this.data('newVal', $this.val());
-			alert(val.val());
+			alert(val.newVal);
 			alert(newValue);
     document.getElementById('address').value = newValue;};
   
