@@ -4,10 +4,10 @@ angular.module('starter.controllers', [])
     })
     .controller('MapCtrl', function($scope, $cordovaGeolocation) {
 	$scope.clientSideList = [
-    { text: "Backbone", value: "bb" },
-    { text: "Angular", value: "ng" },
-    { text: "Ember", value: "em" },
-    { text: "Knockout", value: "ko" }
+    { text: "Atlantic Square", value: "Atlantic Square" },
+    { text: "Park District", value: "Park District" },
+    { text: "Curran Street", value: "Curran Street" },
+    { text: "North Avenue", value: "North Avenue" }
   ];
   
   
@@ -15,7 +15,7 @@ angular.module('starter.controllers', [])
         $scope.mapVisible = true;
 		
 		clientSideValue.onchange = function(evnt){
-    document.getElementById('address').value =  evnt.target.text();};
+    document.getElementById('address').value =  evnt.target.value;};
   
 		var geocoder = new google.maps.Geocoder();
 		function geocodePosition(pos) {
