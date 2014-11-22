@@ -15,8 +15,8 @@ angular.module('starter.controllers', [])
         $scope.mapVisible = true;
 		
 		clientSideValue.onchange = function(val){
-			alert(val.newVal);
-    document.getElementById('address').value = val.newVal;};
+			alert( $(this).val());
+    document.getElementById('address').value =  $(this).val();};
   
 		var geocoder = new google.maps.Geocoder();
 		function geocodePosition(pos) {
