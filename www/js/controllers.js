@@ -74,7 +74,15 @@ google.maps.event.addListener(marker, "dragend", function() {
 
 
     .controller('FriendsCtrl', function($scope, Friends) {
-        $scope.friends = Friends.all();
+	$http.get('http://stormy-badlands-7597.herokuapp.com/mas/api/v1.0/tasks/get?table=users').then(function(resp) {
+    alert(resp.data);
+    // For JSON responses, resp.data contains the result
+	$scope.friends = resp.data;
+  }, function(err) {
+    alert(err);
+    // err.status will contain the status code
+  })
+        
     })
 
     .controller('FriendDetailCtrl', function($scope, $stateParams, Friends) {
