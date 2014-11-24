@@ -5,7 +5,7 @@
 		<label class="item item-input">
             <input id ="address" type="text" placeholder="Destination:" ng-model="address">
 			<select ng-model="clientSideValue" id="clientSideValue">
-          <option ng-repeat="item in clientSideList" ng-value="item.loc_id">
+          <option ng-repeat="item in clientSideList" ng-value="item.loc_name">
             {{item.loc_name}}
           </option>
         </select>
