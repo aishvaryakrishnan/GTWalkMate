@@ -2,14 +2,10 @@ angular.module('starter.controllers', [])
 
     .controller('DashCtrl', function($scope, user) {
     })
-    .controller('MapCtrl', function($scope, $cordovaGeolocation) {
-	$scope.clientSideList = [
-    { text: "Atlantic Square", value: "Atlantic Square" },
-    { text: "Park District", value: "Park District" },
-    { text: "Curran Street", value: "Curran Street" },
-    { text: "North Avenue", value: "North Avenue" }
-  ];
-  
+    .controller('MapCtrl', function($scope, $cordovaGeolocation, $http) {
+	$http.get('https://stormy-badlands-7597.herokuapp.com/mas/api/v1.0/tasks/getlocations').success(function(data) {
+	$scope.clientSideList = data.locations;
+     });
   
 	$scope.coords = [0,0];
         $scope.mapVisible = true;
@@ -75,7 +71,6 @@ google.maps.event.addListener(marker, "dragend", function() {
 
     .controller('FriendsCtrl', function($scope, $http) {
 	$http.get('https://stormy-badlands-7597.herokuapp.com/mas/api/v1.0/tasks/getwalkers').success(function(data) {
-	alert("here");
 	$scope.friends = data.walkers;
      });
         
