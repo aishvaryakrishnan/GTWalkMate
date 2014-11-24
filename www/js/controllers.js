@@ -74,15 +74,11 @@ google.maps.event.addListener(marker, "dragend", function() {
 
 
     .controller('FriendsCtrl', function($scope, $http) {
-	$http.get('http://http://stormy-badlands-7597.herokuapp.com/mas/api/v1.0/tasks/getwalkers').then(function(resp) {
+	$http.get('http://http://stormy-badlands-7597.herokuapp.com/mas/api/v1.0/tasks/getwalkers').success(function(data) {
 	alert("here");
-    alert(resp.data.walkers);
-    // For JSON responses, resp.data contains the result
-	$scope.friends = resp.data.walkers;
-  }, function(err) {
-    alert(err);
-    // err.status will contain the status code
-  })
+	alert(data);
+         $scope.friends = data;
+     });
         
     })
 
