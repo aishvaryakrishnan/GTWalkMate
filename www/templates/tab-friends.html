@@ -1,8 +1,20 @@
 <ion-view title="Friends">
   <ion-content class="has-header">
+  <ion-list>
+	Groups
+      <ion-item ng-repeat="friend in friends" ng-if = "friend.grp_id != null" type="item-text-wrap" href="#/tab/friend/{{friend.id}}">
+        Group {{friend.grp_id}}:
+		<ion-list>
+      <ion-item ng-repeat="f in friends" ng-if = "friend.grp_id == f.grp_id" type="item-text-wrap" href="#/tab/friend/{{f.id}}">
+       {{friend.first_name}} {{friend.last_name}}
+      </ion-item>	
+    </ion-list>
+      </ion-item>	
+    </ion-list>
     <ion-list>
-      <ion-item ng-repeat="friend in friends" type="item-text-wrap" href="#/tab/friend/{{friend.id}}">
-        {{friend.name}}
+	Individuals
+      <ion-item ng-repeat="friend in friends" ng-if = "friend.grp_id == null" type="item-text-wrap" href="#/tab/friend/{{friend.id}}">
+        {{friend.first_name}} {{friend.last_name}}
       </ion-item>	
     </ion-list>
   </ion-content>
