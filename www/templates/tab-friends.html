@@ -3,11 +3,6 @@
   <ion-list>
       <ion-item ng-repeat="friend in friends" ng-if = "friend.grp_id != null" type="item-text-wrap" href="#/tab/friend/{{friend.grp_id}}">
        Group  {{friend.grp_id}}
-		<ion-list>
-      <ion-item ng-repeat="friend in friends" type="item-text-wrap" href="#/tab/friend/{{friend.gt_id}}">
-       {{friend.first_name}} {{friend.last_name}}
-      </ion-item>	
-    </ion-list>
       </ion-item>	
     </ion-list>
     <ion-list>
