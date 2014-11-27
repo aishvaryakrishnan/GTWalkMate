@@ -4,11 +4,11 @@
 	Groups
       <ion-item ng-repeat="(key,value) in friends" ng-if = "value.grp_id != null" type="item-text-wrap" >
         
-		<h3 onclick="$('#{{key}}').slideDown()">    
+		<h3 ng-click="$('#{{key}}').slideDown()">    
                    Group {{value.grp_id}}:
                 </h3>
                 <ul id="{{key}}" style="display: none;">
-                    <div ng-repeat="v in value | groupBy: grp_id">
+                    <div ng-repeat="v in value | groupBy: v.grp_id">
                         <br>
                     </div>
                 </ul>
