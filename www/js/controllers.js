@@ -1,6 +1,6 @@
 angular.module('starter.controllers', [])
 
-    .controller('DashCtrl', function($scope, user) {
+    .controller('DashCtrl', function($scope) {
     })
     .controller('MapCtrl', function($scope, $cordovaGeolocation, $http) {
 	$http.get('https://stormy-badlands-7597.herokuapp.com/mas/api/v1.0/tasks/getlocations').success(function(data) {
