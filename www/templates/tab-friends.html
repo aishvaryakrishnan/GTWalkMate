@@ -2,14 +2,14 @@
   <ion-content class="has-header">
   <ion-list>
 	Groups
-      <ion-item ng-repeat="(key,value) in friends" type="item-text-wrap" >
-        Group {{value}}:
+      <ion-item ng-repeat="(key,value) in friends | groupBy:'value.grp_id" type="item-text-wrap" >
+        Group {{value.grp_id}}:
       </ion-item>	
     </ion-list>
     <ion-list>
 	Individuals
-      <ion-item ng-repeat="friend in friends" ng-if = "friend.grp_id == null" type="item-text-wrap" href="#/tab/friend/{{friend.gt_id}}">
-        {{friend.first_name}} {{friend.last_name}}
+      <ion-item ng-repeat="(key, item) in friends" ng-if = "item.grp_id == null" type="item-text-wrap" href="#/tab/friend/{{item.gt_id}}">
+        {{item.first_name}} {{item.last_name}}
       </ion-item>	
     </ion-list>
   </ion-content>

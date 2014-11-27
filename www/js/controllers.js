@@ -74,7 +74,6 @@ google.maps.event.addListener(marker, "dragend", function() {
 	var d = data.walkers;
 	$scope.friends = [];
 	for(var i in d){
-	alert(i + " " + d[i]);
 		$scope.friends.push(d[i]);
      }
      });
