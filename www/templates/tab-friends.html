@@ -2,8 +2,16 @@
   <ion-content class="has-header">
   <ion-list>
 	Groups
-      <ion-item ng-repeat="(key,value) in friends" type="item-text-wrap" >
-        Group {{value.grp_id}}:
+      <ion-item ng-repeat="(key,value) in friends" ng-if = "item.grp_id != null" type="item-text-wrap" >
+        
+		<h3 onclick="$('#{{key}}').slideDown()">    
+                   Group {{value.grp_id}}:
+                </h3>
+                <ul id="{{key}}" style="display: none;">
+                    <div ng-repeat="v in value | groupBy: grp_id">
+                        <br>
+                    </div>
+                </ul>
       </ion-item>	
     </ion-list>
     <ion-list>
