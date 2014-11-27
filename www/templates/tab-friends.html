@@ -2,7 +2,7 @@
   <ion-content class="has-header">
   <ion-list>
 	Groups
-      <ion-item ng-repeat="(key,value) in friends | groupBy: 'grp_id'" ng-if = "friend.grp_id != null" type="item-text-wrap" href="#/tab/friend/{{grp_id}}">
+      <ion-item ng-repeat="(key,value) in friends ng-if = "grp_id != null" type="item-text-wrap" >
         Group {{key}}:
 		<ion-list>
       <ion-item ng-repeat="f in value" type="item-text-wrap" href="#/tab/friend/{{f.id}}">
