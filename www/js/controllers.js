@@ -75,6 +75,7 @@ google.maps.event.addListener(marker, "dragend", function() {
 	for(var i in d){
 		$scope.friends.push(d[i]);
      }
+     });
         
     })
 
