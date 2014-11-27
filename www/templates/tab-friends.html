@@ -2,13 +2,13 @@
   <ion-content class="has-header">
   <ion-list>
 	Groups
-      <ion-item ng-repeat="(key,value) in friends" ng-if = "value.grp_id != null" type="item-text-wrap" >
+      <ion-item ng-repeat="(key,value) in friends | groupBy:value.grp_id" ng-if = "value.grp_id != null" type="item-text-wrap" >
         
 		<h3 ng-click="$('#{{key}}').slideDown()">    
                    Group {{value.grp_id}}:
                 </h3>
                 <ul id="{{key}}" style="display: none;">
-                    <div ng-repeat="v in value | groupBy: 'v.grp_id'">
+                    <div ng-repeat="v in value">
                         <br>
                     </div>
                 </ul>
