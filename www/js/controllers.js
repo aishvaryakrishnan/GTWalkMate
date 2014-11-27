@@ -1,4 +1,4 @@
-angular.module('starter.controllers', ['ionic', 'ngResource'])
+angular.module('starter.controllers', [])
 
     .controller('DashCtrl', function($scope, user) {
     })
@@ -16,7 +16,7 @@ angular.module('starter.controllers', ['ionic', 'ngResource'])
 		var geocoder = new google.maps.Geocoder();
 		function geocodePosition(pos) {
 		geocoder.geocode({
-		latLng: pos
+    latLng: pos
   }, function(responses) {
     if (responses && responses.length > 0) {
       updateMarkerAddress(responses[0].formatted_address);
