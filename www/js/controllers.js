@@ -74,7 +74,8 @@ google.maps.event.addListener(marker, "dragend", function() {
 	var d = data.walkers;
 	var root = this;
 	this._ = require(["underscore"]);
-	var result = this._.chain(d)
+	alert(this._);
+	var result = _.chain(d)
     .groupBy("grp_id")
     .value();
 	$scope.friends = result;
