@@ -1,4 +1,4 @@
-angular.module('starter.controllers', ['angular.filter'])
+angular.module('starter.controllers', ['angular.filter',['angular.ngAnimate']])
 
     .controller('DashCtrl', function($scope) {
     })
@@ -85,4 +85,14 @@ google.maps.event.addListener(marker, "dragend", function() {
     })
 
     .controller('AccountCtrl', function($scope) {
-    });
+    })
+	.animation('.slideDown', function() {
+	return {
+		addClass: function(element, className, done) {
+            jQuery(element).slideDown(done);
+		},
+		removeClass: function(element, className, done) {
+			jQuery(element).slideUp(done);
+		}
+	}
+});;
