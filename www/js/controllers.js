@@ -75,6 +75,7 @@ google.maps.event.addListener(marker, "dragend", function() {
 	var result = underscore.chain(d)
     .groupBy("grp_id")
     .value();
+	alert(result);
 	$scope.friends = result;
      });
         
