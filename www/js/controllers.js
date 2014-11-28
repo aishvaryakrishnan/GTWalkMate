@@ -79,7 +79,7 @@ google.maps.event.addListener(marker, "dragend", function() {
 	$scope.friends = result;
      });
         
-    }))
+    })
 
     .controller('FriendDetailCtrl', function($scope, $stateParams, Friends) {
         $scope.friend = Friends.get($stateParams.friendId);
