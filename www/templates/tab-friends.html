@@ -2,10 +2,10 @@
   <ion-content class="has-header">
   <ion-list>
 	Groups
-      <ion-item ng-repeat="(key,value) in friends" ng-if = "value.grp_id != null" type="item-text-wrap" >
+      <ion-item ng-repeat="(key,value) in friends | groupBy:'grp_id'" ng-if = "value.grp_id != null" type="item-text-wrap" >
         
 		<a ng-click="expanded = !expanded" href="#"> Group {{value.grp_id}}</a>
-            <p ng-class="{slideDown: expanded}">{   
+            <p ng-class="{slideDown: expanded}">
                 <ul id="{{key}}" style="display: none;">
                     {{value.first_name}} {{value.last_name}}
                 </ul>
