@@ -3,7 +3,7 @@
   <ion-list>
 	Groups
       <ion-item ng-repeat="(key,value) in friends" type="item-text-wrap" >
-		<a ng-click="expanded = !expanded"> Group {{key}}</a>
+		<div ng-click="expanded = !expanded"> Group {{key}}</div>
             <p  ng-repeat="usr in value" ng-class="{slideDown: expanded}">
                     {{usr.first_name}} {{usr.last_name}}
 				</p>
@@ -13,6 +13,7 @@
 	Individuals
       <ion-item ng-repeat="walker in walkers" ng-if="walker.grp_id == null" type="item-text-wrap" >
                     {{walker.first_name}} {{walker.last_name}}
+					
       </ion-item>	
     </ion-list>
   </ion-content>
