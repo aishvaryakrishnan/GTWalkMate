@@ -2,7 +2,7 @@
   <ion-content class="has-header">
   <ion-list>
 	Groups
-      <ion-item ng-repeat="friend in friends | groupBy:'friend.grp_id'" ng-if = "friend.grp_id != null" type="item-text-wrap" >
+      <ion-item ng-repeat="friend in friends | groupBy:'grp_id'" ng-if = "grp_id != null" type="item-text-wrap" >
         
 		<h3 ng-click="$('#{{friend.grp_id}}').slideDown()">    
                    Group {{friend.grp_id}}:
