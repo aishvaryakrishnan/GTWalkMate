@@ -95,4 +95,4 @@ google.maps.event.addListener(marker, "dragend", function() {
 			jQuery(element).slideUp(done);
 		}
 	}
-});;
+});
