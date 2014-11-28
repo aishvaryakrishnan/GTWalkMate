@@ -73,8 +73,7 @@ google.maps.event.addListener(marker, "dragend", function() {
 	$http.get('https://stormy-badlands-7597.herokuapp.com/mas/api/v1.0/tasks/getwalkers').success(function(data) {
 	var d = data.walkers;
 	$scope.walkers = data.walkers;
-	var result = underscore.groupBy(d,"grp_id");
-	result = underscore.filter(result, function(q){return q.grp_id != null});
+	var result = underscore.chain(d).filter(function(x){return x.grp_id !=null;}).groupBy("grp_id");
 	$scope.friends = result;
      });
         
