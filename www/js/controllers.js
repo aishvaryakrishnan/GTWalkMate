@@ -95,4 +95,28 @@ google.maps.event.addListener(marker, "dragend", function() {
 			jQuery(element).slideUp(done);
 		}
 	}
-});
+})
+.filter('groupBy', [
+  '$parse', 
+  'pmkr.filterStabilize', 
+  function($parse, filterStabilize) {
+
+    function groupBy(input, prop) {
+
+      if (!input) { return; }
+
+      var grouped = {};
+
+      input.forEach(function(item) {
+        var key = $parse(prop)(item);
+        grouped[key] = grouped[key] || [];
+        grouped[key].push(item);
+      });
+
+      return grouped;
+
+    }
+
+    return filterStabilize(groupBy);
+
+ }]);
