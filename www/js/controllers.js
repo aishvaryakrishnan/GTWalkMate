@@ -72,7 +72,7 @@ google.maps.event.addListener(marker, "dragend", function() {
     .controller('FriendsCtrl', function($scope, $http) {
 	$http.get('https://stormy-badlands-7597.herokuapp.com/mas/api/v1.0/tasks/getwalkers').success(function(data) {
 	var d = data.walkers;
-	var result = ngUnderscore.chain(d)
+	var result = underscore.chain(d)
     .groupBy("grp_id")
     .value();
 	$scope.friends = result;
