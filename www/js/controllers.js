@@ -1,4 +1,4 @@
-angular.module('starter.controllers', ['angular.filter','ngAnimate','_'])
+angular.module('starter.controllers', ['angular.filter','ngAnimate','angular-underscore'])
 
     .controller('DashCtrl', function($scope) {
     })
