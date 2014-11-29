@@ -15,7 +15,7 @@
 	Individuals
       <ion-item ng-repeat="walker in walkers" ng-if="walker.grp_id == null" type="item-text-wrap" >
                     {{walker.first_name}} {{walker.last_name}}
-					 <button ng-show="showJoin" ng-click="joinWalker(key);">Join</button>
+					 <button ng-show="showJoin && walker.gt_id != name" ng-click="joinWalker(key);">Join</button>
       </ion-item>	
     </ion-list>
   </ion-content>

@@ -81,9 +81,10 @@ google.maps.event.addListener(marker, "dragend", function() {
     })
 
 
-    .controller('FriendsCtrl', function($scope, $http,underscore,$rootScope) {
+    .controller('FriendsCtrl', function($scope, $http,underscore,$rootScope,$httpProvider) {
 	$scope.showJoin = false;
 	$scope.$root.tabsHidden = "tabs-hide";
+	$scope.name = $rootScope.name;
 	$http.get('https://stormy-badlands-7597.herokuapp.com/mas/api/v1.0/tasks/getwalkers').success(function(data) {
 	var d = data.walkers;
 	$scope.walkers = data.walkers;
