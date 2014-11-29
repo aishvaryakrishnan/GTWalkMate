@@ -1,4 +1,4 @@
-angular.module('starter.controllers', ['angular.filter','ngAnimate','ngUnderscore'])
+angular.module('starter.controllers', ['angular.filter','ngAnimate','ngUnderscore','$http'])
 
     .controller('DashCtrl', function($scope, $rootScope,$window) {
 	$scope.$root.tabsHidden = "tabs-hide";
