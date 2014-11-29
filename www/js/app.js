@@ -20,6 +20,9 @@ angular.module('starter', ['ionic','ngCordova', 'google-maps','starter.controlle
     }
   });
 })
+.config(function($http) {
+   $http.defaults.headers.post["Content-Type"] = "application/x-www-form-urlencoded";
+}])
 .config(function($stateProvider, $urlRouterProvider) {
 
   // Ionic uses AngularUI Router which uses the concept of states
