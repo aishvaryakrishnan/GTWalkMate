@@ -108,7 +108,7 @@ google.maps.event.addListener(marker, "dragend", function() {
     $window.location.href = '#/tab/friends';
   }).
   error(function(data, status, headers, config) {
-    alert(status);
+    alert(data);
   });
 	   
     };	
