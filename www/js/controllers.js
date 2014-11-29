@@ -79,10 +79,7 @@ google.maps.event.addListener(marker, "dragend", function() {
 	   $window.location.href = '#/tab/friends';
     };	
     })
-	.config(['$httpProvider', function($httpProvider) {
-    $httpProvider.defaults.useXDomain=true;
-delete $httpProvider.defaults.headers.common['X-Requested-With'];
-}])
+	
 
     .controller('FriendsCtrl', function($scope, $http,underscore,$rootScope) {
 	$scope.showJoin = false;
