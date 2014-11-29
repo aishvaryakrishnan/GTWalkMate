@@ -92,7 +92,7 @@ google.maps.event.addListener(marker, "dragend", function() {
 	angular.forEach(d, function(x , key){
 	angular.forEach(x, function(y , k){
 	if (k == "gt_id" && y == $rootScope.name){
-		$scope.grp_id = x("grp_id");
+		$scope.grp_id = x["grp_id"];
 		$scope.gt_id = y
 		alert(x + " " +y);
 		}
