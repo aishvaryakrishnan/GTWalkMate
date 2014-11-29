@@ -22,7 +22,6 @@ angular.module('starter', ['ionic','ngCordova', 'google-maps','starter.controlle
 })
 .config(['$httpProvider', function($httpProvider) {
     $httpProvider.defaults.useXDomain=true;
-	$httpProvider.defaults.headers.post["Content-Type"] = "application/x-www-form-urlencoded";
 delete $httpProvider.defaults.headers.common['X-Requested-With'];
 }])
 .config(function($stateProvider, $urlRouterProvider) {
