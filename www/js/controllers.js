@@ -88,9 +88,12 @@ google.maps.event.addListener(marker, "dragend", function() {
 	$scope.walkers = data.walkers;
 	var result = underscore.chain(d).filter(function(x){return x.grp_id !=null;}).groupBy("grp_id").value();
 	$scope.friends = result;
-	angular.forEach(d, function(x , key){
-	if x.gt_id equals $rootScope.name then
-		$scope.grp_id = x.grp_id;
+	angular.forEach(result, function(x , key){
+	alert(x + " " + key);
+	angular.forEach(x, function(y , k){
+	alert(y + " "+ k);
+	if k == "gt_id" and y equals $rootScope.name then
+		$scope.grp_id = x;
 	});
 	if $rootScope.grp_id != null then
 		$scope.showJoin = 'True';
