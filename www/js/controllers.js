@@ -102,16 +102,12 @@ google.maps.event.addListener(marker, "dragend", function() {
 		$scope.showJoin = true;
 		}
 		$scope.joinGroup = function(key) {
-		var dataObj = {
-				grp_id:key, 
-				gt_id: $scope.gt_id
-		};	
-		 $http.post('https://stormy-badlands-7597.herokuapp.com/mas/api/v1.0/tasks/joingroup', dataObj).
+		 $http.post('https://stormy-badlands-7597.herokuapp.com/mas/api/v1.0/tasks/joingroup', {grp_id:key, gt_id: $scope.gt_id}).
   success(function(data, status, headers, config) {
     $window.location.href = '#/tab/friends';
   }).
   error(function(data, status, headers, config) {
-    alert("Error status" + status);
+    alert(status);
   });
 	   
     };	
@@ -127,6 +123,13 @@ google.maps.event.addListener(marker, "dragend", function() {
     };	
 	$scope.joinWalker = function(key) {
 		 $http.post('https://stormy-badlands-7597.herokuapp.com/mas/api/v1.0/tasks/addgroup', {gt_id: $scope.gt_id}).
+  success(function(data, status, headers, config) {
+    $window.location.href = '#/tab/friends';
+  }).
+  error(function(data, status, headers, config) {
+    alert(status);
+  });'
+  $http.post('https://stormy-badlands-7597.herokuapp.com/mas/api/v1.0/tasks/adduser', {gt_id: $scope.gt_id, first_name:'Ted', last_name:'Jones', def_dest:'1', email:'tst@tes.com'}).
   success(function(data, status, headers, config) {
     $window.location.href = '#/tab/friends';
   }).
