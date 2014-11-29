@@ -121,13 +121,18 @@ google.maps.event.addListener(marker, "dragend", function() {
     };	
 	$scope.joinWalker = function(key) {
 		 var id = $scope.gt_id;
-  $http.post('https://stormy-badlands-7597.herokuapp.com/mas/api/v1.0/tasks/adduser', {first_name:'Ted', gt_id: 'ted99', last_name:'Jones', def_dest:'1', email:'tst@tes.com'}).
-  success(function(data, status, headers, config) {
-    $window.location.href = '#/tab/friends';
-  }).
-  error(function(data, status, headers, config) {
-    alert(status);
-  });
+		 $http({
+    method: 'POST',
+    url: 'https://stormy-badlands-7597.herokuapp.com/mas/api/v1.0/tasks/adduser',
+    headers: {'Content-Type': 'application/x-www-form-urlencoded'},
+    transformRequest: function(obj) {
+        var str = [];
+        for(var p in obj)
+        str.push(encodeURIComponent(p) + "=" + encodeURIComponent(obj[p]));
+        return str.join("&");
+    },
+    data: {first_name:'Ted', gt_id: 'ted99', last_name:'Jones', def_dest:'1', email:'tst@tes.com'}
+}).success(function () {});
 	   
     };	
 		});
