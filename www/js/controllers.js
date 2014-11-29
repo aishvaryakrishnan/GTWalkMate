@@ -93,8 +93,7 @@ google.maps.event.addListener(marker, "dragend", function() {
 	angular.forEach(x, function(y , k){
 	if (k == "gt_id" && y == $rootScope.name){
 		$scope.grp_id = x["grp_id"];
-		$scope.gt_id = y
-		alert(x + " " +y);
+		$scope.gt_id = y;
 		}
 	});
      });
@@ -102,6 +101,8 @@ google.maps.event.addListener(marker, "dragend", function() {
 		$scope.showJoin = true;
 		}
 		$scope.joinGroup = function(key) {
+		$httpProvider.defaults.useXDomain=true;
+delete $httpProvider.defaults.headers.common['X-Requested-With'];
 		 $http.post('https://stormy-badlands-7597.herokuapp.com/mas/api/v1.0/tasks/joingroup', {grp_id:key, gt_id: $scope.gt_id}).
   success(function(data, status, headers, config) {
     $window.location.href = '#/tab/friends';
@@ -112,6 +113,8 @@ google.maps.event.addListener(marker, "dragend", function() {
 	   
     };	
 	$scope.leaveGroup = function(key) {
+	$httpProvider.defaults.useXDomain=true;
+delete $httpProvider.defaults.headers.common['X-Requested-With'];
 		 $http.post('https://stormy-badlands-7597.herokuapp.com/mas/api/v1.0/tasks/leavegroup', {gt_id: $scope.gt_id}).
   success(function(data, status, headers, config) {
     $window.location.href = '#/tab/friends';
@@ -122,6 +125,8 @@ google.maps.event.addListener(marker, "dragend", function() {
 	   
     };	
 	$scope.joinWalker = function(key) {
+	$httpProvider.defaults.useXDomain=true;
+delete $httpProvider.defaults.headers.common['X-Requested-With'];
 		 $http.post('https://stormy-badlands-7597.herokuapp.com/mas/api/v1.0/tasks/addgroup', {gt_id: $scope.gt_id}).
   success(function(data, status, headers, config) {
     $window.location.href = '#/tab/friends';
