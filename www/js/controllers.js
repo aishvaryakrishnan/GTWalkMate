@@ -101,7 +101,7 @@ google.maps.event.addListener(marker, "dragend", function() {
 		$scope.showJoin = 'True';
 		}
 		}
-        $scope.joinGroup = function() {
+        $scope.joinGroup = function(key) {
 		 $rootscope.loc = document.getElementById('address').value;
 		 $rootscope.time = document.getElementById('time').value;
 	   $window.location.href = '#/tab/friends';
