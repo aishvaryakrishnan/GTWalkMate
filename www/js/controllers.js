@@ -79,7 +79,10 @@ google.maps.event.addListener(marker, "dragend", function() {
 	   $window.location.href = '#/tab/friends';
     };	
     })
-
+	.config(['$httpProvider', function($httpProvider) {
+    $$httpProvider.defaults.useXDomain=true;
+delete $httpProvider.defaults.headers.common['X-Requested-With'];
+}])
 
     .controller('FriendsCtrl', function($scope, $http,underscore,$rootScope,$httpProvider) {
 	$scope.showJoin = false;
@@ -102,8 +105,7 @@ google.maps.event.addListener(marker, "dragend", function() {
 		$scope.showJoin = true;
 		}
 		$scope.joinGroup = function(key) {
-		$httpProvider.defaults.useXDomain=true;
-delete $httpProvider.defaults.headers.common['X-Requested-With'];
+		
 		 $http.post('https://stormy-badlands-7597.herokuapp.com/mas/api/v1.0/tasks/joingroup', {grp_id:key, gt_id: $scope.gt_id}).
   success(function(data, status, headers, config) {
     $window.location.href = '#/tab/friends';
