@@ -116,8 +116,6 @@ delete $httpProvider.defaults.headers.common['X-Requested-With'];
 	   
     };	
 	$scope.leaveGroup = function(key) {
-	$httpProvider.defaults.useXDomain=true;
-delete $httpProvider.defaults.headers.common['X-Requested-With'];
 		 $http.post('https://stormy-badlands-7597.herokuapp.com/mas/api/v1.0/tasks/leavegroup', {gt_id: $scope.gt_id}).
   success(function(data, status, headers, config) {
     $window.location.href = '#/tab/friends';
@@ -128,8 +126,6 @@ delete $httpProvider.defaults.headers.common['X-Requested-With'];
 	   
     };	
 	$scope.joinWalker = function(key) {
-	$httpProvider.defaults.useXDomain=true;
-delete $httpProvider.defaults.headers.common['X-Requested-With'];
 		 $http.post('https://stormy-badlands-7597.herokuapp.com/mas/api/v1.0/tasks/addgroup', {gt_id: $scope.gt_id}).
   success(function(data, status, headers, config) {
     $window.location.href = '#/tab/friends';
