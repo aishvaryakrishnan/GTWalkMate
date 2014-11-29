@@ -92,12 +92,14 @@ google.maps.event.addListener(marker, "dragend", function() {
 	alert(x + " " + key);
 	angular.forEach(x, function(y , k){
 	alert(y + " "+ k);
-	if k == "gt_id" and y equals $rootScope.name then
+	if (k == "gt_id" && y == $rootScope.name){
 		$scope.grp_id = x;
+		}
 	});
-	if $rootScope.grp_id != null then
-		$scope.showJoin = 'True';
      });
+	 if ($rootScope.grp_id != null){
+		$scope.showJoin = 'True';
+		}
         $scope.joinGroup = function() {
 		 $rootscope.loc = document.getElementById('address').value;
 		 $rootscope.time = document.getElementById('time').value;
