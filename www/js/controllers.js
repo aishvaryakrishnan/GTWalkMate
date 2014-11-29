@@ -5,11 +5,13 @@ angular.module('starter.controllers', ['angular.filter','ngAnimate','ngUnderscor
 	$scope.login = function() {
 	   $window.location.href = '#/tab/map';
 	   $rootScope.name = document.getElementById('name').value;
+	   alert($rootScope.name);
     };	
 	
     })
     .controller('MapCtrl', function($scope, $cordovaGeolocation, $http,$window,$rootScope) {
-	document.getElementById('name').value = $rootScope.name.value;
+	 alert($rootScope.name);
+	document.getElementById('name').value = $rootScope.name;
 	$scope.$root.tabsHidden = "tabs-hide";
 	$http.get('https://stormy-badlands-7597.herokuapp.com/mas/api/v1.0/tasks/getlocations').success(function(data) {
 	$scope.clientSideList = data.locations;
@@ -88,7 +90,7 @@ google.maps.event.addListener(marker, "dragend", function() {
 	$scope.walkers = data.walkers;
 	var result = underscore.chain(d).filter(function(x){return x.grp_id !=null;}).groupBy("grp_id").value();
 	$scope.friends = result;
-	angular.forEach(result, function(x , key){
+	angular.forEach(d, function(x , key){
 	alert(x + " " + key);
 	angular.forEach(x, function(y , k){
 	alert(y + " "+ k);
