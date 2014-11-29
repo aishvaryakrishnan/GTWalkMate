@@ -108,7 +108,7 @@ google.maps.event.addListener(marker, "dragend", function() {
         data: {grp_id:key, gt_id: $scope.gt_id},
         withCredentials: false,
         headers: {
-                    'Content-Type': 'application/json; charset=utf-8'
+                    
         }
     });
 		 
