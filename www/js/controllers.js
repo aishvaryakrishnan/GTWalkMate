@@ -68,7 +68,7 @@ google.maps.event.addListener(marker, "dragend", function() {
             navigator.geolocation.getCurrentPosition(onSuccess, onError);
         
 		 $scope.newWalker = function() {
-       alert('Submitted');
+	   $window.location.href = #/tab/friends
     };	
     })
 
