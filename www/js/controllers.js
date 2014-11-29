@@ -1,8 +1,8 @@
 angular.module('starter.controllers', ['angular.filter','ngAnimate','ngUnderscore'])
 
-    .controller('DashCtrl', function($scope, $rootScope) {
+    .controller('DashCtrl', function($scope, $rootScope,$window) {
 	$scope.$root.tabsHidden = "tabs-hide";
-	$scope.newWalker = function() {
+	$scope.login = function() {
 	   $window.location.href = '#/tab/map';
 	   $rootScope.name = $scope.name;
 	alert($rootScope.name);
