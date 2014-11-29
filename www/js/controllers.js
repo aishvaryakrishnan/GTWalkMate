@@ -5,12 +5,10 @@ angular.module('starter.controllers', ['angular.filter','ngAnimate','ngUnderscor
 	$scope.login = function() {
 	   $window.location.href = '#/tab/map';
 	   $rootScope.name = document.getElementById('name').value;
-	alert($rootScope.name);
     };	
 	
     })
     .controller('MapCtrl', function($scope, $cordovaGeolocation, $http,$window,$rootScope) {
-	alert($rootScope.name);
 	document.getElementById('name').value = $rootScope.name;
 	$scope.$root.tabsHidden = "tabs-hide";
 	$http.get('https://stormy-badlands-7597.herokuapp.com/mas/api/v1.0/tasks/getlocations').success(function(data) {
@@ -76,20 +74,32 @@ google.maps.event.addListener(marker, "dragend", function() {
             navigator.geolocation.getCurrentPosition(onSuccess, onError);
         
 		 $scope.newWalker = function() {
+		 $rootscope.loc = document.getElementById('address').value;
+		 $rootscope.time = document.getElementById('time').value;
 	   $window.location.href = '#/tab/friends';
     };	
     })
 
 
-    .controller('FriendsCtrl', function($scope, $http,underscore) {
+    .controller('FriendsCtrl', function($scope, $http,underscore,$rootScope) {
 	$scope.$root.tabsHidden = "tabs-hide";
 	$http.get('https://stormy-badlands-7597.herokuapp.com/mas/api/v1.0/tasks/getwalkers').success(function(data) {
 	var d = data.walkers;
 	$scope.walkers = data.walkers;
 	var result = underscore.chain(d).filter(function(x){return x.grp_id !=null;}).groupBy("grp_id").value();
 	$scope.friends = result;
+	angular.forEach(d, function(x , key){
+	if x.gt_id equals $rootScope.name then
+		$scope.grp_id = x.grp_id;
+	});
+	if $rootScope.grp_id != null then
+		$scope.showJoin = 'True';
      });
-        
+        $scope.joinGroup = function() {
+		 $rootscope.loc = document.getElementById('address').value;
+		 $rootscope.time = document.getElementById('time').value;
+	   $window.location.href = '#/tab/friends';
+    };	
     })
 
     .controller('FriendDetailCtrl', function($scope, $stateParams, Friends) {
