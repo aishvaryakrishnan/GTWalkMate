@@ -74,8 +74,8 @@ google.maps.event.addListener(marker, "dragend", function() {
             navigator.geolocation.getCurrentPosition(onSuccess, onError);
         
 		 $scope.newWalker = function() {
-		 $rootscope.loc = document.getElementById('address').value;
-		 $rootscope.time = document.getElementById('time').value;
+		 $rootScope.loc = document.getElementById('address').value;
+		 $rootScope.time = document.getElementById('time').value;
 	   $window.location.href = '#/tab/friends';
     };	
     })
@@ -101,8 +101,8 @@ google.maps.event.addListener(marker, "dragend", function() {
 		$scope.showJoin = 'True';
 		}
 		$scope.joinGroup = function(key) {
-		 $rootscope.loc = document.getElementById('address').value;
-		 $rootscope.time = document.getElementById('time').value;
+		 $rootScope.loc = document.getElementById('address').value;
+		 $rootScope.time = document.getElementById('time').value;
 	   $window.location.href = '#/tab/friends';
     };	
 		});
