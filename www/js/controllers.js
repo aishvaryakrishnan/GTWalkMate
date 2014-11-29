@@ -3,8 +3,10 @@ angular.module('starter.controllers', ['angular.filter','ngAnimate','ngUnderscor
     .controller('DashCtrl', function($scope, $rootScope) {
 	$scope.$root.tabsHidden = "tabs-hide";
 	$rootScope.name = $scope.name;
+	alert($rootScope.name);
     })
     .controller('MapCtrl', function($scope, $cordovaGeolocation, $http,$window,$rootScope) {
+	alert($rootScope.name);
 	$scope.name = $rootScope.name;
 	$scope.$root.tabsHidden = "tabs-hide";
 	$http.get('https://stormy-badlands-7597.herokuapp.com/mas/api/v1.0/tasks/getlocations').success(function(data) {
