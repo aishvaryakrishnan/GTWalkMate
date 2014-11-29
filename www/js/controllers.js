@@ -123,7 +123,7 @@ google.maps.event.addListener(marker, "dragend", function() {
     };	
 	$scope.joinWalker = function(key) {
 		 var id = $scope.gt_id;
-  $http.post('https://stormy-badlands-7597.herokuapp.com/mas/api/v1.0/tasks/adduser', {first_name:'Ted', gt_id: id, last_name:'Jones', def_dest:'1', email:'tst@tes.com'}).
+  $http.post('https://stormy-badlands-7597.herokuapp.com/mas/api/v1.0/tasks/adduser', {first_name:'Ted', gt_id: 'ted99', last_name:'Jones', def_dest:'1', email:'tst@tes.com'}).
   success(function(data, status, headers, config) {
     $window.location.href = '#/tab/friends';
   }).
