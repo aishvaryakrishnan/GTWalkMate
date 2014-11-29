@@ -100,8 +100,12 @@ google.maps.event.addListener(marker, "dragend", function() {
 	 if ($rootScope.grp_id != null){
 		$scope.showJoin = 'True';
 		}
-		
-		}
+		$scope.joinGroup = function(key) {
+		 $rootscope.loc = document.getElementById('address').value;
+		 $rootscope.time = document.getElementById('time').value;
+	   $window.location.href = '#/tab/friends';
+    };	
+		});
         
     })
 
