@@ -4,14 +4,14 @@ angular.module('starter.controllers', ['angular.filter','ngAnimate','ngUnderscor
 	$scope.$root.tabsHidden = "tabs-hide";
 	$scope.login = function() {
 	   $window.location.href = '#/tab/map';
-	   $rootScope.name = $scope.name;
+	   $rootScope.name = document.getElementById('name').value;
 	alert($rootScope.name);
     };	
 	
     })
     .controller('MapCtrl', function($scope, $cordovaGeolocation, $http,$window,$rootScope) {
 	alert($rootScope.name);
-	$scope.name = $rootScope.name;
+	document.getElementById('name').value = $rootScope.name;
 	$scope.$root.tabsHidden = "tabs-hide";
 	$http.get('https://stormy-badlands-7597.herokuapp.com/mas/api/v1.0/tasks/getlocations').success(function(data) {
 	$scope.clientSideList = data.locations;
