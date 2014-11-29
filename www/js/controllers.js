@@ -100,13 +100,18 @@ google.maps.event.addListener(marker, "dragend", function() {
 		$scope.showJoin = true;
 		}
 		$scope.joinGroup = function(key) {
-		 $http.post('https://stormy-badlands-7597.herokuapp.com/mas/api/v1.0/tasks/joingroup', {grp_id:key, gt_id: $scope.gt_id}).
-  success(function(data, status, headers, config) {
-    $window.location.href = '#/tab/friends';
-  }).
-  error(function(data, status, headers, config) {
-    alert(status);
-  });
+		$http({
+    method: 'POST',
+    url: 'https://stormy-badlands-7597.herokuapp.com/mas/api/v1.0/tasks/joingroup',
+    headers: {'Content-Type': 'application/x-www-form-urlencoded'},
+    transformRequest: function(obj) {
+        var str = [];
+        for(var p in obj)
+        str.push(encodeURIComponent(p) + "=" + encodeURIComponent(obj[p]));
+        return str.join("&");
+    },
+    data: {grp_id:key, gt_id: $scope.gt_id}
+}).success(function () {$window.location.href = '#/tab/friends';});
 	   
     };	
 	$scope.leaveGroup = function(key) {
@@ -132,7 +137,7 @@ google.maps.event.addListener(marker, "dragend", function() {
         return str.join("&");
     },
     data: {first_name:'Ted', gt_id: 'ted99', last_name:'Jones', def_dest:'1', email:'tst@tes.com'}
-}).success(function () {});
+}).success(function () {$window.location.href = '#/tab/friends';});
 	   
     };	
 		});
