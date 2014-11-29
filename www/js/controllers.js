@@ -79,7 +79,9 @@ google.maps.event.addListener(marker, "dragend", function() {
 	   $window.location.href = '#/tab/friends';
     };	
     })
-	
+	.config(function($http) {
+   $http.defaults.headers.post["Content-Type"] = "application/x-www-form-urlencoded";
+})
 
     .controller('FriendsCtrl', function($scope, $http,underscore,$rootScope) {
 	$scope.showJoin = false;
