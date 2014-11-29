@@ -1,5 +1,6 @@
 <ion-view title="Login">
   <ion-content class="has-header padding">
+  <form ng-submit="newWalker()">
         <div class="padding">
           <label class="item item-input">
             <input type="text" placeholder="Username:" ng-model="name">
@@ -9,7 +10,8 @@
           </label>
         </div>
 		<div class="padding">
-        <a class="button" href="#/tab/map">Submit</a>
+        <button type="submit" class="button button-positive button-block">Submit</button>
 		</div>
+		</form>
   </ion-content>
 </ion-view>

@@ -2,8 +2,12 @@ angular.module('starter.controllers', ['angular.filter','ngAnimate','ngUnderscor
 
     .controller('DashCtrl', function($scope, $rootScope) {
 	$scope.$root.tabsHidden = "tabs-hide";
-	$rootScope.name = $scope.name;
+	$scope.newWalker = function() {
+	   $window.location.href = '#/tab/map';
+	   $rootScope.name = $scope.name;
 	alert($rootScope.name);
+    };	
+	
     })
     .controller('MapCtrl', function($scope, $cordovaGeolocation, $http,$window,$rootScope) {
 	alert($rootScope.name);
