@@ -82,6 +82,7 @@ google.maps.event.addListener(marker, "dragend", function() {
 
 
     .controller('FriendsCtrl', function($scope, $http,underscore,$rootScope) {
+	$scope.showJoin = false;
 	$scope.$root.tabsHidden = "tabs-hide";
 	$http.get('https://stormy-badlands-7597.herokuapp.com/mas/api/v1.0/tasks/getwalkers').success(function(data) {
 	var d = data.walkers;
@@ -95,7 +96,7 @@ google.maps.event.addListener(marker, "dragend", function() {
 		}
 	});
      });
-	 if ($rootScope.grp_id != null){
+	 if ($scope.grp_id != null){
 		$scope.showJoin = true;
 		}
 		alert($scope.showJoin);
