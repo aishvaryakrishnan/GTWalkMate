@@ -3,9 +3,10 @@
   <ion-list>
 	Groups
       <ion-item ng-repeat="(key,value) in friends" type="item-text-wrap" >
-		<div ng-click="expanded = !expanded"> Group {{key}}</div>
+		<div ng-click="expanded = !expanded"> Group {{key}} 
+		<button ng-click="joinGroup(key);">Join</button> </div>
             <p  ng-repeat="usr in value" ng-class="{slideDown: expanded}">
-                    {{usr.first_name}} {{usr.last_name}}
+                    {{usr.first_name}} {{usr.last_name}} 
 				</p>
       </ion-item>	
     </ion-list>
