@@ -102,14 +102,16 @@ google.maps.event.addListener(marker, "dragend", function() {
 		$scope.showJoin = true;
 		}
 		$scope.joinGroup = function(key) {
-		
-		 $http.post('https://stormy-badlands-7597.herokuapp.com/mas/api/v1.0/tasks/joingroup', {grp_id:key, gt_id: $scope.gt_id}).
-  success(function(data, status, headers, config) {
-    $window.location.href = '#/tab/friends';
-  }).
-  error(function(data, status, headers, config) {
-    alert(status);
-  });
+		$http({
+        url: 'https://stormy-badlands-7597.herokuapp.com/mas/api/v1.0/tasks/joingroup',
+        method: "POST",
+        data: {grp_id:key, gt_id: $scope.gt_id},
+        withCredentials: false,
+        headers: {
+                    'Content-Type': 'application/json; charset=utf-8'
+        }
+    });
+		 
 	   
     };	
 	$scope.leaveGroup = function(key) {
