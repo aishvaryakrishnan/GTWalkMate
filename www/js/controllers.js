@@ -84,7 +84,7 @@ google.maps.event.addListener(marker, "dragend", function() {
 delete $httpProvider.defaults.headers.common['X-Requested-With'];
 }])
 
-    .controller('FriendsCtrl', function($scope, $http,underscore,$rootScope,$httpProvider) {
+    .controller('FriendsCtrl', function($scope, $http,underscore,$rootScope) {
 	$scope.showJoin = false;
 	$scope.$root.tabsHidden = "tabs-hide";
 	$scope.name = $rootScope.name;
