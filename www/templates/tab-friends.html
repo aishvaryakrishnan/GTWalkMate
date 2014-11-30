@@ -4,8 +4,9 @@
 	Groups
       <ion-item ng-repeat="(key,value) in friends" type="item-text-wrap" >
 		<div ng-click="expanded = !expanded"> Group {{key}} 
-		 </div> <button class="button button-positive button-block" ng-show="showJoin" ng-click="joinGroup(key);">Join</button>
+		 <button class="button button-positive button-block" ng-show="showJoin" ng-click="joinGroup(key);">Join</button>
 		 <button class="button button-positive button-block" ng-show="!showJoin && key == grp_id" ng-click="leaveGroup(key);">Leave</button>
+		 </div> 
             <p  ng-repeat="usr in value" ng-class="{slideDown: expanded}">
                     {{usr.first_name}} {{usr.last_name}} 
 				</p>
