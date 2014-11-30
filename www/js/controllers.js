@@ -79,7 +79,8 @@ google.maps.event.addListener(marker, "dragend", function() {
 	   $window.location.href = '#/tab/friends';
     };	
     })
-    .controller('FriendsCtrl', function($scope, $http,underscore,$rootScope,$window) {
+    .controller('FriendsCtrl', function($scope, $http,underscore,$rootScope,$location) {
+	$scope.initFirst=function(){
 	$scope.showJoin = false;
 	$scope.$root.tabsHidden = "tabs-hide";
 	$scope.name = $rootScope.name;
@@ -103,6 +104,8 @@ google.maps.event.addListener(marker, "dragend", function() {
 	 if ($scope.grp_id == null){
 		$scope.showJoin = true;
 		}
+	});
+	}
 		$scope.joinGroup = function(key) {
 		$http({
     method: 'POST',
@@ -115,7 +118,7 @@ google.maps.event.addListener(marker, "dragend", function() {
         return str.join("&");
     },
     data: {grp_id:key, gt_id: $scope.gt_id}
-}).success(function () {$window.location.reload();});
+}).success(function () {$scope.initFirst();});
 	   
     };	
 	$scope.leaveGroup = function(key) {
@@ -130,7 +133,7 @@ google.maps.event.addListener(marker, "dragend", function() {
         return str.join("&");
     },
     data: {gt_id: $scope.gt_id}
-}).success(function () {$window.location.reload();});
+}).success(function () {$scope.initFirst();});
 	   
     };	
 	$scope.joinWalker = function(key) {
@@ -146,7 +149,7 @@ google.maps.event.addListener(marker, "dragend", function() {
         return str.join("&");
     },
     data: {grp_id: (maxGrp + 1), name: "Group" + (maxGrp +1), dest_id : 1}
-}).success(function () {$window.location.reload();});   
+}).success(function () {$scope.initFirst();});   
 
 $http({
     method: 'POST',
@@ -159,7 +162,7 @@ $http({
         return str.join("&");
     },
     data: {grp_id:(maxGrp + 1), gt_id: $scope.gt_id}
-}).success(function () {$window.location.reload();});
+}).success(function () {$scope.initFirst();});
 
 $http({
     method: 'POST',
@@ -172,9 +175,9 @@ $http({
         return str.join("&");
     },
     data: {grp_id:(maxGrp + 1), gt_id: key}
-}).success(function () {$window.location.reload();});
+}).success(function () {$scope.initFirst();});
     };	
-		});
+		
         
     })
 
