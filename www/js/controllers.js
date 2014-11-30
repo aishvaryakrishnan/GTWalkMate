@@ -80,6 +80,7 @@ google.maps.event.addListener(marker, "dragend", function() {
     };	
     })
     .controller('FriendsCtrl', function($scope, $http,underscore,$rootScope,$location) {
+	var maxGrp = 0;
 	$scope.initFirst=function(){
 	$scope.showJoin = false;
 	$scope.$root.tabsHidden = "tabs-hide";
@@ -89,7 +90,6 @@ google.maps.event.addListener(marker, "dragend", function() {
 	$scope.walkers = data.walkers;
 	var result = underscore.chain(d).filter(function(x){return x.grp_id !=null;}).groupBy("grp_id").value();
 	$scope.friends = result;
-	var maxGrp = 0;
 	angular.forEach(d, function(x , key){
 	angular.forEach(x, function(y , k){
 	if (maxGrp < x["grp_id"]){
