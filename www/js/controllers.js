@@ -104,8 +104,7 @@ google.maps.event.addListener(marker, "dragend", function() {
 	 if ($scope.grp_id == null){
 		$scope.showJoin = true;
 		}
-	});
-	}
+	
 		$scope.joinGroup = function(key) {
 		$http({
     method: 'POST',
@@ -178,7 +177,8 @@ $http({
 }).success(function () {$scope.initFirst();});
     };	
 		
-        
+       });
+	} 
     })
 
     .controller('FriendDetailCtrl', function($scope, $stateParams, Friends) {
