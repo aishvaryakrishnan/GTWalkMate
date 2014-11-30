@@ -79,7 +79,7 @@ google.maps.event.addListener(marker, "dragend", function() {
 	   $window.location.href = '#/tab/friends';
     };	
     })
-    .controller('FriendsCtrl', function($scope, $http,underscore,$rootScope) {
+    .controller('FriendsCtrl', function($scope, $http,underscore,$rootScope,$location) {
 	$scope.showJoin = false;
 	$scope.$root.tabsHidden = "tabs-hide";
 	$scope.name = $rootScope.name;
