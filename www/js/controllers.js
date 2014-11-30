@@ -79,7 +79,7 @@ google.maps.event.addListener(marker, "dragend", function() {
 	   $window.location.href = '#/tab/friends';
     };	
     })
-    .controller('FriendsCtrl', function($scope, $http,underscore,$rootScope,$location) {
+    .controller('FriendsCtrl', function($scope, $http,underscore,$rootScope,$window) {
 	$scope.showJoin = false;
 	$scope.$root.tabsHidden = "tabs-hide";
 	$scope.name = $rootScope.name;
@@ -115,7 +115,7 @@ google.maps.event.addListener(marker, "dragend", function() {
         return str.join("&");
     },
     data: {grp_id:key, gt_id: $scope.gt_id}
-}).success(function () {$location.path('#/tab/friends');});
+}).success(function () {$window.location.reload();});
 	   
     };	
 	$scope.leaveGroup = function(key) {
@@ -130,7 +130,7 @@ google.maps.event.addListener(marker, "dragend", function() {
         return str.join("&");
     },
     data: {gt_id: $scope.gt_id}
-}).success(function () {$location.path('#/tab/friends');});
+}).success(function () {$window.location.reload();});
 	   
     };	
 	$scope.joinWalker = function(key) {
@@ -146,7 +146,7 @@ google.maps.event.addListener(marker, "dragend", function() {
         return str.join("&");
     },
     data: {grp_id: (maxGrp + 1), name: "Group" + (maxGrp +1), dest_id : 1}
-}).success(function () {$location.path('#/tab/friends');});   
+}).success(function () {$window.location.reload();});   
 
 $http({
     method: 'POST',
@@ -159,7 +159,7 @@ $http({
         return str.join("&");
     },
     data: {grp_id:(maxGrp + 1), gt_id: $scope.gt_id}
-}).success(function () {$location.path('#/tab/friends');});
+}).success(function () {$window.location.reload();});
 
 $http({
     method: 'POST',
@@ -172,7 +172,7 @@ $http({
         return str.join("&");
     },
     data: {grp_id:(maxGrp + 1), gt_id: key}
-}).success(function () {$location.path('#/tab/friends');});
+}).success(function () {$window.location.reload();});
     };	
 		});
         
