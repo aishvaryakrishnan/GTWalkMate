@@ -4,9 +4,10 @@ angular.module('starter.controllers', ['angular.filter','ngAnimate','ngUnderscor
 	$scope.invalid = false;
 	$scope.$root.tabsHidden = "tabs-hide";
 	$rootScope.name = document.getElementById('name').value;
+	
+	$scope.login = function() {
 	var name = $rootScope.name;
 	var pwd = document.getElementById('pwd').value;
-	$scope.login = function() {
 	$http({
     method: 'POST',
     url: 'https://stormy-badlands-7597.herokuapp.com/mas/api/v1.0/tasks/userlogin',
