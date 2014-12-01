@@ -20,7 +20,7 @@ angular.module('starter.controllers', ['angular.filter','ngAnimate','ngUnderscor
     },
     data: {gt_id : name,password: pwd}
 }).success(function (data, status, headers, config) {
-if(data.success == true){
+if(data.success == 'true'){
 $scope.invalid = false;
 $window.location.href = '#/tab/map';
 } else{
