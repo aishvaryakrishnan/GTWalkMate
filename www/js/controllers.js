@@ -1,6 +1,7 @@
 angular.module('starter.controllers', ['angular.filter','ngAnimate','ngUnderscore'])
 
     .controller('DashCtrl', function($scope, $rootScope,$window,$http) {
+	$scope.invalid = false;
 	$scope.$root.tabsHidden = "tabs-hide";
 	$rootScope.name = document.getElementById('name').value;
 	var name = $rootScope.name;
@@ -18,8 +19,12 @@ angular.module('starter.controllers', ['angular.filter','ngAnimate','ngUnderscor
     },
     data: {gt_id : name,password: pwd}
 }).success(function (data, status, headers, config) {
-alert(data.success);
+if(data.success == 'true'){
+$scope.invalid = false;
 $window.location.href = '#/tab/map';
+} else{
+$scope.invalid = true;
+}
 	   });   
 	   
     };	

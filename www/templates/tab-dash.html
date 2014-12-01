@@ -2,6 +2,7 @@
   <ion-content class="has-header padding">
   <form ng-submit="login()">
         <div class="padding">
+		<label class="item" ng-show="invalid">Invalid credentials. Please try again"</label>
           <label class="item item-input">
             <input type="text" placeholder="Username:" id = "name" ng-model="name">
           </label>
