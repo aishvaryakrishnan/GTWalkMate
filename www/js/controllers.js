@@ -18,7 +18,7 @@ angular.module('starter.controllers', ['angular.filter','ngAnimate','ngUnderscor
     },
     data: {gt_id : name,password: pwd}
 }).success(function (data, status, headers, config) {
-alert(data);
+alert(data.success);
 $window.location.href = '#/tab/map';
 	   });   
 	   
