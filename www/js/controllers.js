@@ -79,6 +79,7 @@ $scope.invalid = true;
 													draggable:true,
 													raiseOnDrag: true,
                                                     });
+													marker.setMap(map);
 	}
 	}
 	};
