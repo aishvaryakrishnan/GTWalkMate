@@ -1,6 +1,6 @@
 angular.module('starter.controllers', ['angular.filter','ngAnimate','ngUnderscore'])
 
-    .controller('DashCtrl', function($scope, $rootScope,$window) {
+    .controller('DashCtrl', function($scope, $rootScope,$window,$http) {
 	$scope.$root.tabsHidden = "tabs-hide";
 	$rootScope.name = document.getElementById('name').value;
 	var name = $rootScope.name;
