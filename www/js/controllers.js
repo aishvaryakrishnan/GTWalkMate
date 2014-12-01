@@ -68,7 +68,7 @@ $scope.invalid = true;
 	var lat = item.lat;
 	var lng = item.long;
 	latlng = new google.maps.LatLng(lat, lng);
-	marker = new google.maps.Marker({
+	marker = google.maps.Marker({
                                                     position: latlng,
                                                     map: map,
 													draggable:true,
@@ -99,7 +99,7 @@ $scope.invalid = true;
                 var myLong = position.coords.longitude;
       
  latlng = new google.maps.LatLng(myLat, myLong);
-                marker = new google.maps.Marker({
+                marker = google.maps.Marker({
                                                     position: latlng,
                                                     map: map,
 													draggable:true,
