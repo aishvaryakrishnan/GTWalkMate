@@ -66,13 +66,12 @@ $scope.invalid = true;
 		
 		clientSideValue.onchange = function(evnt){
     document.getElementById('address').value =  evnt.target.value;
-	alert("test");
 	for (item in $rootScope.loc){
 	if($rootScope.loc[item].loc_name == evnt.target.value){
 	var lat = item.lat;
 	var lng = item.long;
 	latlng = new google.maps.LatLng(lat, lng);
-	clearMarker();
+	//clearMarker();
 	marker = new google.maps.Marker({
                                                     position: latlng,
                                                     map: map,
