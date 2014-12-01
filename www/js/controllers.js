@@ -36,7 +36,7 @@ $scope.invalid = true;
 	$scope.$root.tabsHidden = "tabs-hide";
 	//MAP
                 var mapOptions = {
-                    center: new google.maps.LatLng(0, 0),
+                    center: new google.maps.LatLng(33.777061, -84.3902),
                     zoom: 14,
                     mapTypeId: google.maps.MapTypeId.ROADMAP
                 };
@@ -44,7 +44,7 @@ $scope.invalid = true;
             var map = new google.maps.Map(document.getElementById("map"),
                                               mapOptions);
  $scope.map = map;
- var latlng = new google.maps.LatLng(0, 0);
+ var latlng = new google.maps.LatLng(33.777061, -84.3902);
                 var marker = new google.maps.Marker({
                                                     position: latlng,
                                                     map: map,
@@ -63,6 +63,7 @@ $scope.invalid = true;
 		clientSideValue.onchange = function(evnt,loc,latlng,marker){
     document.getElementById('address').value =  evnt.target.value;
 	for (item in loc){
+	alert(item.loc_name);
 	if(item.loc_name == evnt.target.value){
 	var lat = item.lat;
 	var lng = item.long;
