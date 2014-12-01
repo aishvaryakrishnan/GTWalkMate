@@ -34,6 +34,23 @@ $scope.invalid = true;
     .controller('MapCtrl', function($scope, $cordovaGeolocation, $http,$window,$rootScope) {
 	document.getElementById('name').value = $rootScope.name;
 	$scope.$root.tabsHidden = "tabs-hide";
+	//MAP
+                var mapOptions = {
+                    center: new google.maps.LatLng(0, 0),
+                    zoom: 14,
+                    mapTypeId: google.maps.MapTypeId.ROADMAP
+                };
+
+            var map = new google.maps.Map(document.getElementById("map"),
+                                              mapOptions);
+ $scope.map = map;
+ var latlng = new google.maps.LatLng(0, 0);
+                var marker = new google.maps.Marker({
+                                                    position: latlng,
+                                                    map: map,
+													draggable:true,
+													raiseOnDrag: true,
+                                                    });
 	$http.get('https://stormy-badlands-7597.herokuapp.com/mas/api/v1.0/tasks/getlocations').success(function(data) {
 	$scope.clientSideList = data.locations;
      });
@@ -42,7 +59,21 @@ $scope.invalid = true;
         $scope.mapVisible = true;
 		
 		clientSideValue.onchange = function(evnt){
-    document.getElementById('address').value =  evnt.target.value;};
+    document.getElementById('address').value =  evnt.target.value;
+	for (item in $scope.clientSideList){
+	if(item.loc_name == evnt.target.value){
+	var lat = item.lat;
+	var lng = item.long;
+	latlng = new google.maps.LatLng(lat, lng);
+	marker = new google.maps.Marker({
+                                                    position: latlng,
+                                                    map: map,
+													draggable:true,
+													raiseOnDrag: true,
+                                                    });
+	}
+	}
+	};
   
 		var geocoder = new google.maps.Geocoder();
 		function geocodePosition(pos) {
@@ -63,19 +94,9 @@ $scope.invalid = true;
         var onSuccess = function(position) {
                 var myLat = position.coords.latitude;
                 var myLong = position.coords.longitude;
-
-                //MAP
-                var mapOptions = {
-                    center: new google.maps.LatLng(myLat, myLong),
-                    zoom: 14,
-                    mapTypeId: google.maps.MapTypeId.ROADMAP
-                };
-
-            var map = new google.maps.Map(document.getElementById("map"),
-                                              mapOptions);
- $scope.map = map;
- var latlng = new google.maps.LatLng(myLat, myLong);
-                var marker = new google.maps.Marker({
+      
+ latlng = new google.maps.LatLng(myLat, myLong);
+                marker = new google.maps.Marker({
                                                     position: latlng,
                                                     map: map,
 													draggable:true,
@@ -94,7 +115,7 @@ google.maps.event.addListener(marker, "dragend", function() {
                       'message: ' + error.message + '\n');
             }
 
-            navigator.geolocation.getCurrentPosition(onSuccess, onError);
+         navigator.geolocation.getCurrentPosition(onSuccess, onError);
         
 		 $scope.newWalker = function() {
 		 $rootScope.loc = document.getElementById('address').value;
