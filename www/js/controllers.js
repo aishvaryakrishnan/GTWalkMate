@@ -35,8 +35,9 @@ $scope.invalid = true;
 	document.getElementById('name').value = $rootScope.name;
 	$scope.$root.tabsHidden = "tabs-hide";
 	//MAP
+	var latlng = new google.maps.LatLng(33.777061, -84.3902);
                 var mapOptions = {
-                    center: new google.maps.LatLng(33.777061, -84.3902),
+                    center: latlng,
                     zoom: 14,
                     mapTypeId: google.maps.MapTypeId.ROADMAP
                 };
@@ -44,13 +45,15 @@ $scope.invalid = true;
             var map = new google.maps.Map(document.getElementById("map"),
                                               mapOptions);
  $scope.map = map;
- var latlng = new google.maps.LatLng(33.777061, -84.3902);
                 var marker = new google.maps.Marker({
                                                     position: latlng,
                                                     map: map,
 													draggable:true,
 													raiseOnDrag: true,
                                                     });
+	function clearMarker(){
+	marker.setMap(null);
+	}
 	var loc = [];
 	$http.get('https://stormy-badlands-7597.herokuapp.com/mas/api/v1.0/tasks/getlocations').success(function(data,loc) {
 	$scope.clientSideList = data.locations;
@@ -68,7 +71,8 @@ $scope.invalid = true;
 	var lat = item.lat;
 	var lng = item.long;
 	latlng = new google.maps.LatLng(lat, lng);
-	marker = google.maps.Marker({
+	clearMarker();
+	marker = new google.maps.Marker({
                                                     position: latlng,
                                                     map: map,
 													draggable:true,
@@ -99,7 +103,8 @@ $scope.invalid = true;
                 var myLong = position.coords.longitude;
       
  latlng = new google.maps.LatLng(myLat, myLong);
-                marker = google.maps.Marker({
+clearMarker();
+                marker = new google.maps.Marker({
                                                     position: latlng,
                                                     map: map,
 													draggable:true,
