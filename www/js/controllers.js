@@ -54,10 +54,9 @@ $scope.invalid = true;
 	function clearMarker(){
 	marker.setMap(null);
 	}
-	var loc = [];
+	$scope.clientSideList = [];
 	$http.get('https://stormy-badlands-7597.herokuapp.com/mas/api/v1.0/tasks/getlocations').success(function(data,loc) {
 	$scope.clientSideList = data.locations;
-	loc = data.locations;
      });
   
 	$scope.coords = [0,0];
@@ -65,7 +64,8 @@ $scope.invalid = true;
 		
 		clientSideValue.onchange = function(evnt){
     document.getElementById('address').value =  evnt.target.value;
-	for (item in loc){
+	alert("test");
+	for (item in $scope.clientSideList){
 	alert(item.loc_name);
 	if(item.loc_name == evnt.target.value){
 	var lat = item.lat;
