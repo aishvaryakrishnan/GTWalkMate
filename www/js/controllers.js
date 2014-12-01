@@ -58,7 +58,7 @@ $scope.invalid = true;
 	$scope.coords = [0,0];
         $scope.mapVisible = true;
 		
-		clientSideValue.onchange = function(evnt){
+		clientSideValue.onchange = function(evnt,$scope,latlng,marker){
     document.getElementById('address').value =  evnt.target.value;
 	for (item in $scope.clientSideList){
 	if(item.loc_name == evnt.target.value){
@@ -91,7 +91,7 @@ $scope.invalid = true;
   function updateMarkerAddress(str) {
   document.getElementById('address').value = str;
 }
-        var onSuccess = function(position) {
+        var onSuccess = function(position,latlng,marker) {
                 var myLat = position.coords.latitude;
                 var myLong = position.coords.longitude;
       
