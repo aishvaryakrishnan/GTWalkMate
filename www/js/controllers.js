@@ -52,7 +52,6 @@ $scope.invalid = true;
 													raiseOnDrag: true,
                                                     });
 													
-	
 	function clearMarker(){
 	marker.setMap(null);
 	}
@@ -68,7 +67,7 @@ $scope.invalid = true;
     document.getElementById('address').value =  evnt.target.value;
 	alert("test");
 	for (item in $scope.clientSideList){
-	alert(item);
+	alert(item.loc_name);
 	if(item.loc_name == evnt.target.value){
 	var lat = item.lat;
 	var lng = item.long;
@@ -114,16 +113,6 @@ clearMarker();
                                                     });
 google.maps.event.addListener(marker, "dragend", function() {
     geocodePosition(marker.getPosition());
-  });
-  google.maps.event.addListener(map, 'click', function(event) {
-	alert(event.latlng);
-    clearMarker();
-	marker = new google.maps.Marker({
-                                                    position: event.latlng,
-                                                    map: map,
-													draggable:true,
-													raiseOnDrag: true,
-                                                    });
   });
 
             };
