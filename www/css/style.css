@@ -19,3 +19,6 @@ body, html {
 .tabs-hide .tabs {
     display: none;
 }
+.alignRight{
+align:right;
+}

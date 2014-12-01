@@ -68,7 +68,7 @@ $scope.invalid = true;
     document.getElementById('address').value =  evnt.target.value;
 	alert("test");
 	for (item in $rootScope.loc){
-	alert(item["loc_name"]);
+	alert($rootScope.loc[item].loc_name);
 	if(item.loc_name == evnt.target.value){
 	var lat = item.lat;
 	var lng = item.long;
