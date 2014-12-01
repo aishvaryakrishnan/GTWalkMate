@@ -51,6 +51,16 @@ $scope.invalid = true;
 													draggable:true,
 													raiseOnDrag: true,
                                                     });
+													
+													google.maps.event.addListener(map, 'click', function(event) {
+    clearMarker();
+	marker = new google.maps.Marker({
+                                                    position: event.latlng,
+                                                    map: map,
+													draggable:true,
+													raiseOnDrag: true,
+                                                    });
+  });
 	function clearMarker(){
 	marker.setMap(null);
 	}
@@ -113,6 +123,7 @@ clearMarker();
 google.maps.event.addListener(marker, "dragend", function() {
     geocodePosition(marker.getPosition());
   });
+
             };
 
 			 
