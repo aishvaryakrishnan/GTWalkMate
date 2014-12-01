@@ -6,7 +6,7 @@ angular.module('starter.controllers', ['angular.filter','ngAnimate','ngUnderscor
 	$rootScope.name = document.getElementById('name').value;
 	
 	$scope.login = function() {
-	var name = $rootScope.name;
+	var name = document.getElementById('name').value;
 	var pwd = document.getElementById('pwd').value;
 	$http({
     method: 'POST',
