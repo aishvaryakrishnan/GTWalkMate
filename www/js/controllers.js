@@ -68,8 +68,7 @@ $scope.invalid = true;
     document.getElementById('address').value =  evnt.target.value;
 	alert("test");
 	for (item in $rootScope.loc){
-	alert($rootScope.loc[item].loc_name);
-	if(item.loc_name == evnt.target.value){
+	if($rootScope.loc[item].loc_name == evnt.target.value){
 	var lat = item.lat;
 	var lng = item.long;
 	latlng = new google.maps.LatLng(lat, lng);
