@@ -3,7 +3,6 @@ angular.module('starter.controllers', ['angular.filter','ngAnimate','ngUnderscor
     .controller('DashCtrl', function($scope, $rootScope,$window,$http) {
 	$scope.invalid = false;
 	$scope.$root.tabsHidden = "tabs-hide";
-	$rootScope.name = document.getElementById('name').value;
 	
 	$scope.login = function() {
 	var name = document.getElementById('name').value;
@@ -23,6 +22,7 @@ angular.module('starter.controllers', ['angular.filter','ngAnimate','ngUnderscor
 if(data.success == 'true'){
 $scope.invalid = false;
 $window.location.href = '#/tab/map';
+$rootScope.name = document.getElementById('name').value;
 } else{
 $scope.invalid = true;
 }
