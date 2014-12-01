@@ -71,7 +71,8 @@ $scope.invalid = true;
 	var lat = item.lat;
 	var lng = item.long;
 	latlng = new google.maps.LatLng(lat, lng);
-	//clearMarker();
+	alert(lat + " " +lng);
+	clearMarker();
 	marker = new google.maps.Marker({
                                                     position: latlng,
                                                     map: map,
