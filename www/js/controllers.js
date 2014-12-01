@@ -68,10 +68,9 @@ $scope.invalid = true;
     document.getElementById('address').value =  evnt.target.value;
 	for (item in $rootScope.loc){
 	if($rootScope.loc[item].loc_name == evnt.target.value){
-	var lat = item.lat;
-	var lng = item.long;
+	var lat = $rootScope.loc[item].lat;
+	var lng = $rootScope.loc[item].long;
 	latlng = new google.maps.LatLng(lat, lng);
-	alert(lat + " " +lng);
 	clearMarker();
 	marker = new google.maps.Marker({
                                                     position: latlng,
@@ -135,6 +134,7 @@ google.maps.event.addListener(marker, "dragend", function() {
     };	
     })
     .controller('FriendsCtrl', function($scope, $http,underscore,$rootScope,$location) {
+	alert($rootScope.name);
 	var maxGrp = 0;
 	$scope.initFirst=function(){
 	$scope.showJoin = false;
