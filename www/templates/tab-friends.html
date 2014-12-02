@@ -4,12 +4,10 @@
 	<div class="item item-avatar">
     <img src="img/group.jpg"> Groups</div>
       <ion-item ng-repeat="(key,value) in friends" type="item-text-wrap" >
-		<div class="item item-button-right">
 		<div ng-click="expanded = !expanded"> Group {{key}} 
-		<h5>{{value[0].dest_name}} {{value[0].start_time | date:'HH:mm Z'}}</h5>
+		<h5>{{value[0].dest_name}} {{value[0].start_time | date:'hh:mm a'}}</h5>
 		 <button class="button button-small button-positive" ng-show="showJoin" ng-click="joinGroup(key);">Join</button>
 		 <button class="button button-small button-positive" ng-show="!showJoin && key == grp_id" ng-click="leaveGroup(key);">Leave</button>
-		 </div>
 		 </div>
             <p  ng-repeat="usr in value" ng-class="{slideDown: expanded}">
                     {{usr.first_name}} {{usr.last_name}} 
@@ -22,7 +20,7 @@
     <img src="img/ind.jpg"> Individuals</div>
       <ion-item class="item-button-right" ng-repeat="walker in walkers" ng-if="walker.grp_id == null && walker.gt_id != name" type="item-text-wrap" >
                     {{walker.first_name}} {{walker.last_name}}
-					<h5>{{walker.dest_name}} {{walker.start_time | date:'HH:mm Z'}}</h5>
+					<h5>{{walker.dest_name}} {{walker.start_time | date:'hh:mm a'}}</h5>
 					 <button class="button button-small button-positive" ng-show="showJoin" ng-click="joinWalker(walker.gt_id);">Join</button>
       </ion-item>	
     </ion-list>
