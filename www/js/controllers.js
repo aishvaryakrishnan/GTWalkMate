@@ -187,7 +187,7 @@ google.maps.event.addListener(marker, "dragend", function() {
         str.push(encodeURIComponent(p) + "=" + encodeURIComponent(obj[p]));
         return str.join("&");
     },
-    data: {gt_id: $scope.gt_id}
+    data: {gt_id: $scope.gt_id, grp_id:key}
 }).success(function () {$scope.initFirst();});
 	   
     };	
