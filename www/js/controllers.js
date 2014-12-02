@@ -153,7 +153,7 @@ google.maps.event.addListener(marker, "dragend", function() {
 	else if (k == "start_time"){
 	dt = new Date(y)
 	if(dt.getTimezoneOffset() > 0){
-    dt.setTime( d.getTime() + d.getTimezoneOffset()*60*1000 );
+    dt.setTime( dt.getTime() + dt.getTimezoneOffset()*60*1000 );
 	};
 	d[key][k] = dt;
 	}
