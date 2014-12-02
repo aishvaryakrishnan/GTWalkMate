@@ -142,7 +142,7 @@ google.maps.event.addListener(marker, "dragend", function() {
 	$http.get('https://stormy-badlands-7597.herokuapp.com/mas/api/v1.0/tasks/getwalkers').success(function(data) {
 	var d = data.walkers;
 	angular.forEach(d, function(x , key){
-	angularforEach(x, function(y , k){
+	angular.forEach(x, function(y , k){
 	if (maxGrp < x["grp_id"]){
 	maxGrp = x["grp_id"];
 	}
