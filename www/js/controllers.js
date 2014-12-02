@@ -151,7 +151,11 @@ google.maps.event.addListener(marker, "dragend", function() {
 		$scope.gt_id = y;
 		}
 	else if (k == "start_time"){
-	d[key][k] = new Date(y);
+	dt = new Date(y)
+	if(dt.getTimezoneOffset() > 0){
+    dt.setTime( d.getTime() + d.getTimezoneOffset()*60*1000 );
+	};
+	d[key][k] = dt;
 	}
 	});
      });
