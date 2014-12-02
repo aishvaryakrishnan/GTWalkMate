@@ -141,9 +141,6 @@ google.maps.event.addListener(marker, "dragend", function() {
 	$scope.name = $rootScope.name;
 	$http.get('https://stormy-badlands-7597.herokuapp.com/mas/api/v1.0/tasks/getwalkers').success(function(data) {
 	var d = data.walkers;
-	$scope.walkers = data.walkers;
-	var result = underscore.chain(d).filter(function(x){return x.grp_id !=null;}).groupBy("grp_id").value();
-	$scope.friends = result;
 	angular.forEach(d, function(x , key){
 	angular.forEach(x, function(y , k){
 	if (maxGrp < x["grp_id"]){
@@ -155,6 +152,11 @@ google.maps.event.addListener(marker, "dragend", function() {
 		}
 	});
      });
+	 
+	$scope.walkers = data.walkers;
+	var result = underscore.chain(d).filter(function(x){return x.grp_id !=null;}).groupBy("grp_id").value();
+	$scope.friends = result;
+	
 	 if ($scope.grp_id == null){
 		$scope.showJoin = true;
 		}
