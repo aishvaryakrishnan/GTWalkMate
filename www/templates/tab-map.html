@@ -10,6 +10,7 @@
             <input id ="address" type="text" placeholder="Destination:" ng-model="address">
 			</label>
 			<select ng-model="clientSideValue" id="clientSideValue">
+			<option style="display:none" value="">select a type</option>
           <option ng-repeat="item in clientSideList" ng-value="item.loc_name">
             {{item.loc_name}}
           </option>
