@@ -3,7 +3,7 @@
   <ion-list>
 	<div class="item item-avatar">
     <img src="img/group.jpg"> Groups</div>
-      <ion-item ng-repeat="(key,value) in friends" type="item-text-wrap" >
+      <ion-item class="item-button-right" ng-repeat="(key,value) in friends" type="item-text-wrap" >
 		<div ng-click="expanded = !expanded"> Group {{key}} 
 		 <button class="button button-small button-positive pull-right" ng-show="showJoin" ng-click="joinGroup(key);">Join</button>
 		 <button class="button button-small button-positive pull-right" ng-show="!showJoin && key == grp_id" ng-click="leaveGroup(key);">Leave</button>
@@ -17,7 +17,7 @@
     <ion-list>
 	<div class="item item-avatar">
     <img src="img/ind.jpg"> Individuals</div>
-      <ion-item ng-repeat="walker in walkers" ng-if="walker.grp_id == null && walker.gt_id != name" type="item-text-wrap" >
+      <ion-item class="item-button-right" ng-repeat="walker in walkers" ng-if="walker.grp_id == null && walker.gt_id != name" type="item-text-wrap" >
                     {{walker.first_name}} {{walker.last_name}}
 					 <button class="button button-small button-positive pull-right" ng-show="showJoin" ng-click="joinWalker(walker.gt_id);">Join</button>
       </ion-item>	
