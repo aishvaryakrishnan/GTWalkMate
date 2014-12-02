@@ -152,7 +152,6 @@ google.maps.event.addListener(marker, "dragend", function() {
 		}
 	else if (k == "start_time"){
 	d[key][k] = new Date(y);
-	alert(y);
 	}
 	});
      });
