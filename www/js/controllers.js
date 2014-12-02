@@ -151,7 +151,7 @@ google.maps.event.addListener(marker, "dragend", function() {
 		$scope.gt_id = y;
 		}
 	else if (k == "start_time"){
-	d[key][k] = new DateTime(y);
+	d[key][k] = new Date(y);
 	alert(y);
 	}
 	});
