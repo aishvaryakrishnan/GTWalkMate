@@ -134,7 +134,6 @@ google.maps.event.addListener(marker, "dragend", function() {
     };	
     })
     .controller('FriendsCtrl', function($scope, $http,underscore,$rootScope,$location) {
-	alert($rootScope.name);
 	var maxGrp = 0;
 	$scope.initFirst=function(){
 	$scope.showJoin = false;
